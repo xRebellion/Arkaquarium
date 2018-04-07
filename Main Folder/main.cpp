@@ -20,7 +20,7 @@ int main( int argc, char* args[] )
     bool running = true;
     double prevtime = time_since_start();
 
-    //Akuarium akuarium(SCREEN_WIDTH, SCREEN_HEIGHT);
+    Akuarium akuarium(SCREEN_WIDTH, SCREEN_HEIGHT);
     //Snail snail(SCREEN_WIDTH/2, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
@@ -87,6 +87,7 @@ int main( int argc, char* args[] )
 		draw_image("resources/bg.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         //draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         //draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        akuarium.update();
         draw_image("resources/ikan.png", 320, 240);
         
 		update_screen();

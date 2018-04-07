@@ -5,6 +5,8 @@ class Coin : public Position
 {
 private:
     int value;
+    int id;
+    static int n_coin;
 public:
     Coin();
     Coin(int x, int y, int val); //memunculkan sebuah koin dengan posisi x y dengan value val.
@@ -13,5 +15,7 @@ public:
     //getter setter
     int getValue() const;
     void setValue(int val);
+
+    bool operator==(const Coin& C);
 };
 #endif

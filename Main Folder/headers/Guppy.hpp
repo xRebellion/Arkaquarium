@@ -7,6 +7,9 @@
 
 class Guppy : public Ikan
 {
+private: 
+	static int n_guppy;
+
 public:
 	Guppy();
 	Guppy(int x, int y, int xmax, int ymax);
@@ -16,5 +19,7 @@ public:
 
 	bool checkSpitCoin(); //Mengecek apakah ikan boleh mengeluarkan koin atau belum
 	void spitCoin(List<Coin>& Lcoin); // Membuat ikan mengeluarkan coin
+
+	bool operator== (const Guppy& G);
 };
 #endif

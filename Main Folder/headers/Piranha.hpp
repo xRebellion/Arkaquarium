@@ -6,6 +6,8 @@
 #include "Guppy.hpp"
 class Piranha : public Ikan
 {
+private:
+	static int n_piranha;
 public:
 	Piranha();
 	Piranha(int x, int y, int xmax, int ymax);
@@ -15,5 +17,6 @@ public:
 	
 	bool checkSpitCoin(); //Mengecek apakah ikan boleh mengeluarkan koin atau belum
 	void spitCoin(List<Coin>& Lcoin); // Membuat ikan mengeluarkan coin
+	bool operator== (const Piranha& P);
 };
 #endif

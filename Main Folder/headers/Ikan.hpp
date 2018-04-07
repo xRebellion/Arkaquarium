@@ -15,6 +15,7 @@ protected:
 	int hunger;
 	const int hungerThreshold;
 	const int spd;
+	int id;
 public:
     Ikan(int x, int y, int xmax, int ymax,int gThreshold, int cRadius, int hThreshold, int spd); // Generates a fish
 	
@@ -26,6 +27,7 @@ public:
 	bool isHungry(); //Apakah ikan kelaparan atau tidak (hunger > hungerThreshold?)
 	bool checkDeath(); //Mengecek apakah ikan sudah seharusnya mati atau tidak (hunger > 0?)
 	void reduceHunger(); //Periodically reduce hunger
+	
 	
 	//
 };

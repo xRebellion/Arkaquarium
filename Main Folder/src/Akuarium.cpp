@@ -69,3 +69,43 @@ List<Makanan> Akuarium::GetMakananList()
 {
     return makanan;
 }
+void Akuarium::update()
+{ //update's deaths currently only handles natural deaths (e.g: fish too hungry, coin reached bottom, etc.)
+//not yet updates from other sources.
+    
+    for(int i = 0; coin.getNext(i) != NULL ; i++)
+    {
+        coin.get(i).moveDown();
+        if(coin.get(i).isOnBottom())
+        {
+            coin.remove(coin.get(i));
+        }
+    }
+
+    for(int i = 0; guppy.getNext(i) != NULL ; i++)
+    {
+        guppy.get(i).move();
+        if(guppy.get(i).checkDeath())
+        {
+            guppy.remove(guppy.get(i));
+        }
+    }
+
+    for(int i = 0; piranha.getNext(i) != NULL ; i++)
+    {
+        piranha.get(i).move();
+        if(piranha.get(i).checkDeath())
+        {
+            piranha.remove(piranha.get(i));
+        }
+    }
+
+    for(int i = 0; makanan.getNext(i) != NULL ; i++)
+    {
+        makanan.get(i).moveDown();
+        if(makanan.get(i).isOnBottom())
+        {
+            makanan.remove(makanan.get(i));
+        }
+    }
+}
