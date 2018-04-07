@@ -13,15 +13,14 @@ int main( int argc, char* args[] )
     int frames_passed = 0;
     double fpc_start = time_since_start();
     std::string fps_text = "FPS: 0";
-
-    // Posisi ikan
-    double cy = SCREEN_HEIGHT / 2;
-    double cx = SCREEN_WIDTH / 2;
+    //int cursor_x, cursor_y;
+    
+    
 
     bool running = true;
 
     double prevtime = time_since_start();
-
+	
     while (running) {
         double now = time_since_start();
         double sec_since_last = now - prevtime;
@@ -31,7 +30,9 @@ int main( int argc, char* args[] )
         if (quit_pressed()) {
             running = false;
         }
+        //SDL_GetMouseState(&cursor_x, &cursor_y);
 
+        /*
         // Gerakkan ikan selama tombol panah ditekan
         // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
         // konstan pada komputer yang berbeda.
@@ -66,7 +67,7 @@ int main( int argc, char* args[] )
                 break;
             }
         }
-
+        */
         // Update FPS setiap detik
         frames_passed++;
         if (now - fpc_start > 1) {
@@ -80,10 +81,12 @@ int main( int argc, char* args[] )
 
         // Gambar ikan di posisi yang tepat.
         clear_screen();
-        draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        draw_image("ikan.png", cx, cy);
-        update_screen();
+		draw_image("resources/bg.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+        //draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
+        //draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        draw_image("resources/ikan.png", 320, 240);
+        
+		update_screen();
     }
 
     close();
