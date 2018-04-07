@@ -1,25 +1,25 @@
-#define NULL 0
+#ifndef LIST_HPP
+#define LIST_HPP
 template <class T>
 class List
 {
 private:
     T data;
-    List *Next;
+    List<T> *Next;
 public:
     List();
-    List(T Head);
     int find (T elmt);
     bool isEmpty();
     void add (T elmt);
     void remove (T elmt);
     T get(int index);
+    List<T> * getNext(int index);
 };
 
 template <class T>
 List<T>::List()
 {
-    data = NULL;
-    Next = NULL;
+    Next = nullptr;
 }
 
 
@@ -28,11 +28,11 @@ int List<T>::find(T elmt)
 //Jika tidak ditemukan, maka mereturn -1 sebagai value.
 {
     int i;
-    for(i = 0; Next != NULL && data != elmt ; i++)
+    for(i = 0; Next != nullptr && data != elmt ; i++)
     {
 
     }
-    if(Next == NULL && data != elmt)
+    if(Next == nullptr && data != elmt)
         return -1;
     else
         return i;
@@ -41,7 +41,7 @@ int List<T>::find(T elmt)
 template <class T>
 bool List<T>::isEmpty()
 {
-    return (data == NULL && Next == NULL);
+    return (data == nullptr && Next == nullptr);
 }
 
 template <class T>
@@ -53,7 +53,7 @@ void List<T>::add(T elmt)
         data = elmt;
     } else
     {
-        while(currList->Next != NULL)
+        while(currList->Next != nullptr)
         {
             currList = currList->Next;
         }
@@ -68,7 +68,7 @@ void List<T>::remove(T elmt)
 {
     List * currList = this;
     bool found = false;
-    while (currList->Next != NULL && !found)
+    while (currList->Next != nullptr && !found)
     {
         if(currList->Next->data == elmt)
             found = true;
@@ -85,9 +85,25 @@ template <class T>
 T List<T>::get(int index)
 {
     List * currList = this;
+    
     for (int i = 0; i < index; i++)
     {
         currList = currList->Next;
     }
     return currList->data;
+    
+    
 }
+
+template <class T>
+List<T> * List<T>::getNext(int index)
+{
+    List * currList = this;
+    
+    for (int i = 0; i < index; i++)
+    {
+        currList = currList->Next;
+    }
+    return currList->Next;
+}
+#endif

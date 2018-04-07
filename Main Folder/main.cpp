@@ -1,4 +1,7 @@
 #include "oop.hpp"
+#include "Akuarium.hpp"
+#include "Snail.hpp"
+#include "Mouse.hpp"
 #include <iostream>
 #include <math.h>
 #include <sstream>
@@ -14,13 +17,13 @@ int main( int argc, char* args[] )
     double fpc_start = time_since_start();
     std::string fps_text = "FPS: 0";
     //int cursor_x, cursor_y;
-    
-    
-
     bool running = true;
-
     double prevtime = time_since_start();
-	
+
+    //Akuarium akuarium(SCREEN_WIDTH, SCREEN_HEIGHT);
+    //Snail snail(SCREEN_WIDTH/2, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+
     while (running) {
         double now = time_since_start();
         double sec_since_last = now - prevtime;

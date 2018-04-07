@@ -1,3 +1,5 @@
+#ifndef AKUARIUM_HPP
+#define AKUARIUM_HPP
 #include "List.hpp"
 #include "Coin.hpp"
 #include "Guppy.hpp"
@@ -19,6 +21,21 @@ private:
 
 public:
     Akuarium(int xMax,int yMax);//Inisialisasi akuarium dengan randomisasi posisi setiap entitas (sebesar (xmax ymax))
-    char GetObjOnPos(int x, int y); //Mencari objek pada x y sekian pada setiap list of object
-    //mereturn char. Misal: 'C' untuk koin, 'G' untuk guppy, dst.
+    char * GetObjOnPos(int x, int y); //Mencari objek pada x y sekian pada setiap list of object
+    //mereturn array of char.
+    //'C' untuk koin pada arr[0]
+    //'G' untuk guppy pada arr[1]
+    //'P' untuk piranha pada arr[2]
+    //'M' untuk makanan pada arr[3]
+    //digunakan array untuk mengcover kemungkinan 2 object di tempat yang sama.
+
+    List<Coin> GetCoinList();
+    List<Guppy> GetGuppyList();
+    List<Piranha> GetPiranhaList();
+    List<Makanan> GetMakananList();
+    //List yang direturn ini bisa diubah sekaligus - karena berupa reference.
+    
+
+
 };
+#endif

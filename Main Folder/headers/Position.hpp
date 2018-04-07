@@ -1,9 +1,11 @@
+#ifndef POSITION_HPP
+#define POSITION_HPP
 class Position
 {
 private:
     int x;
     int y;
-    int xMaxPos, YMaxPos;
+    int xMaxPos, yMaxPos;
 public:
     Position(int xMaxPos, int yMaxPos);//Initialize (Randomized)
     Position (int x, int y, int xMaxPos, int yMaxPos); //Initialize (x,y)
@@ -14,3 +16,4 @@ public:
 };
 
 
+#endif

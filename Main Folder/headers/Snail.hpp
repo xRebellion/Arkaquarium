@@ -1,3 +1,6 @@
+#ifndef SNAIL_HPP
+#define SNAIL_HPP   
+
 #include "Position.hpp"
 #include "Coin.hpp"
 #include "List.hpp"
@@ -11,4 +14,6 @@ public:
     int findMaxY(List<Coin> Lcoin); //mengembalikan index dengan y maksimum.
     void catchCoin(List<Coin>& Lcoin); //menghapus koin dari list koin yang ada apabila berada di dekat snail.
 };
+
+#endif
 

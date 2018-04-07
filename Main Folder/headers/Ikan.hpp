@@ -1,3 +1,6 @@
+#ifndef IKAN_HPP
+#define IKAN_HPP
+
 #include "Position.hpp"
 #include "CoinSpit.hpp"
 
@@ -26,3 +29,5 @@ public:
 	
 	//
 };
+
+#endif
