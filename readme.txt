@@ -1,0 +1,1 @@
+Copy ***isi*** dari SDL_MinGW ke C:\MinGW
