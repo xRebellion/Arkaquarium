@@ -10,7 +10,7 @@ private:
     static int n_coin;
 public:
     Coin();
-    Coin(int x, int y, int val); //memunculkan sebuah koin dengan posisi x y dengan value val.
+    Coin(int x, int y, int val, int xmax, int ymax); //memunculkan sebuah koin dengan posisi x y dengan value val.
     void moveDown(); //bergerak ke bawah secara terus menerus hingga sampai bawah.
     bool isOnBottom() const; //mengecek apakah koin sudah sampai bawah (y = yMaxPos) atau belum.
     //getter setter
