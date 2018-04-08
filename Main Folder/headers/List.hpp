@@ -1,24 +1,31 @@
 #ifndef LIST_HPP
 #define LIST_HPP
+
+#include <iostream>
+using namespace std;
+//List Of References - supaya tidak perlu create object tak terpakai
+//setiap kali menambah elemen linkedlist.
 template <class T>
 class List
 {
 private:
-    T data;
+    T * data;
     List<T> *Next;
 public:
     List();
     int find (T elmt);
     bool isEmpty();
-    void add (T elmt);
+    void add (T * elmt);
     void remove (T elmt);
     T get(int index);
+    T * getDataAddr(int index);
     List<T> * getAddr(int index);
 };
 
 template <class T>
 List<T>::List()
 {
+    data = nullptr;
     Next = nullptr;
 }
 
@@ -28,12 +35,16 @@ int List<T>::find(T elmt)
 //Jika tidak ditemukan, maka mereturn -1 sebagai value.
 {
     int i;
-    for(i = 0; Next != nullptr && data != elmt ; i++)
+    List<T> * currList = this;
+    for(i = 0; currList->Next != nullptr && currList->data != &elmt && *(currList->data) != elmt ; i++)
     {
-
+        currList = currList->Next;
     }
-    if(Next == nullptr && data != elmt)
+
+    if(currList->Next == nullptr && (currList->data != &elmt && *(currList->data) != elmt))
+    {
         return -1;
+    }
     else
         return i;
 }
@@ -44,10 +55,10 @@ bool List<T>::isEmpty()
     return (data == nullptr && Next == nullptr);
 }
 
-template <class T>
-void List<T>::add(T elmt)
+template<class T>
+void List<T>::add (T * elmt)
 {
-    List * currList = this;
+    List<T> * currList = this;
     if (isEmpty())
     {
         data = elmt;
@@ -66,25 +77,52 @@ void List<T>::add(T elmt)
 template <class T>
 void List<T>::remove(T elmt)
 {
-    List * currList = this;
-    bool found = false;
-    while (currList->Next != nullptr && !found)
+    
+    if(!isEmpty())
     {
-        if(currList->Next->data == elmt)
-            found = true;
-        else
-            currList = currList->Next;
-    }
-    if(found)
-    {
-        currList->Next = currList->Next->Next;
+        List<T> * currList = this;
+        if((currList->data == &elmt && *(currList->data) == elmt))
+        {
+            currList->data = nullptr;
+        } else
+        {
+            
+            bool found = false;
+            while (currList->Next != nullptr && !found)
+            {
+                if((currList->Next->data == &elmt && *(currList->Next->data) == elmt))
+                    found = true;
+                else
+                    currList = currList->Next;
+            }
+                
+            if(found)
+            {
+                currList->Next = currList->Next->Next;
+            }
+
+        }
     }
 }
 
 template <class T>
 T List<T>::get(int index)
 {
-    List * currList = this;
+    List<T> * currList = this;
+    
+    for (int i = 0; i < index; i++)
+    {
+        currList = currList->Next;
+    }
+    return *(currList->data);
+    
+    
+}
+
+template <class T>
+T * List<T>::getDataAddr(int index)
+{
+    List<T> * currList = this;
     
     for (int i = 0; i < index; i++)
     {
@@ -98,12 +136,16 @@ T List<T>::get(int index)
 template <class T>
 List<T> * List<T>::getAddr(int index)
 {
-    List * currList = this;
-    
-    for (int i = 0; i < index; i++)
+    if(!isEmpty())
     {
-        currList = currList->Next;
+        List<T> * currList = this;
+        
+        for (int i = 0; i < index; i++)
+        {
+            currList = currList->Next;
+        }
+        return currList;
     }
-    return currList;
+    return nullptr;
 }
 #endif

@@ -20,7 +20,7 @@ protected:
 	int id;
 	double move_tick_rate;
 	double coin_tick_rate;
-	int xdest, ydest;
+	double xdest, ydest;
 public:
     Ikan(int x, int y, int xmax, int ymax,int gThreshold, int cRadius, int hThreshold, int spd, int id); // Generates a fish
 	

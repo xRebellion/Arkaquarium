@@ -5,6 +5,7 @@
 #include <iostream>
 #include <math.h>
 #include <sstream>
+#include <stdio.h>
 
 const double speed = 50; // pixels per second
 
@@ -22,6 +23,10 @@ int main( int argc, char* args[] )
 
     Akuarium akuarium(SCREEN_WIDTH, SCREEN_HEIGHT);
     //Snail snail(SCREEN_WIDTH/2, SCREEN_WIDTH, SCREEN_HEIGHT);
+    List<Coin> * coin = akuarium.getCList();
+    List<Guppy> * guppy = akuarium.getGList();
+    List<Piranha> * piranha = akuarium.getPList();
+    List<Makanan> * makanan = akuarium.getMList();
 
 
     while (running) {
@@ -56,13 +61,13 @@ int main( int argc, char* args[] )
             }
         }
 
+        */
         // Proses masukan yang bersifat "tombol"
         for (auto key : get_tapped_keys()) {
             switch (key) {
             // r untuk reset
             case SDLK_r:
-                cy = SCREEN_HEIGHT / 2;
-                cx = SCREEN_WIDTH / 2;
+                akuarium.AddToAkuarium(new Guppy(100,100,800,600));
                 break;
             // x untuk keluar
             case SDLK_x:
@@ -70,7 +75,6 @@ int main( int argc, char* args[] )
                 break;
             }
         }
-        */
         // Update FPS setiap detik
         frames_passed++;
         if (now - fpc_start > 1) {
@@ -86,9 +90,14 @@ int main( int argc, char* args[] )
         clear_screen();
 		draw_image("resources/bg.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         //draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        //draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        
         akuarium.update(sec_since_last);
-        draw_image("resources/ikan.png", 320, 240);
+        
+        for(int i = 0 ; (*guppy).getAddr(i) != nullptr ; i++)
+        {
+            draw_image("resources/ikan.png", (*guppy).get(i).getX(), (*guppy).get(i).getY());
+        }
         
 		update_screen();
     }

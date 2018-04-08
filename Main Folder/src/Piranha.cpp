@@ -16,7 +16,7 @@ void Piranha::move(List<Guppy>& guppy, double sec_since_last)
 {
     if (isHungry() && !guppy.isEmpty())
     {
-        Guppy NearestFood = findNearestFood(guppy);
+        Guppy NearestFood = *(findNearestFood(guppy));
         moveTo(NearestFood.getX(),NearestFood.getY(),sec_since_last);
     } else
     {
@@ -33,18 +33,20 @@ void Piranha::move(List<Guppy>& guppy, double sec_since_last)
 }
 bool Piranha::checkFood(List<Guppy>& guppy)
 {
-    return(sqrt(pow(findNearestFood(guppy).getX(),2)) + pow(findNearestFood(guppy).getY(),2))< catchRadius;
+    return(sqrt(pow((*findNearestFood(guppy)).getX(),2)) + pow((*findNearestFood(guppy)).getY(),2))< catchRadius;
 }
 void Piranha::eat(List<Guppy>& guppy)
 {
     if (checkFood(guppy))
     {
-        guppy.remove(findNearestFood(guppy));
+        Guppy * temp = (findNearestFood(guppy));
+        guppy.remove(*temp);
+        delete temp;
         growth += rand()%50 + 100;
     }
 }
 
-Guppy Piranha::findNearestFood(List<Guppy>& guppy)
+Guppy * Piranha::findNearestFood(List<Guppy>& guppy)
 {
     double iMinDist = 0;
     double minDist = sqrt(pow(guppy.get(0).getX(),2) + pow(guppy.get(0).getY(),2));
@@ -58,7 +60,7 @@ Guppy Piranha::findNearestFood(List<Guppy>& guppy)
             iMinDist = i;
         }
     }
-    return guppy.get(iMinDist);
+    return guppy.getDataAddr(iMinDist);
     
 }
 
@@ -71,7 +73,7 @@ void Piranha::spitCoin(List<Coin>& Lcoin) // Membuat ikan mengeluarkan coin
     if(checkSpitCoin())
     {
         coin_tick_rate = 0;
-        Lcoin.add(Coin(getX(),getY(),growthStage*40));
+        Lcoin.add(new Coin(getX(),getY(),growthStage*40,getXMax(),getYMax()));
     }
 }
 

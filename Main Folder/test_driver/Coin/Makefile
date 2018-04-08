@@ -1,11 +1,11 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = main.cpp src/oop.cpp src/Akuarium.cpp src/Guppy.cpp src/Piranha.cpp src/Ikan.cpp src/Position.cpp src/Coin.cpp src/Makanan.cpp
+OBJS = main_coin.cpp ../../src/Coin.cpp ../../src/Position.cpp
 
 #CC specifies which compiler we're using
 CC = g++
 
 #INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -IC:\MinGW\include\SDL2 -Iheaders
+INCLUDE_PATHS = -IC:\MinGW\include\SDL2 -I../../headers
 
 #LIBRARY_PATHS specifies the additional library paths we'll need
 LIBRARY_PATHS = -LC:\MinGW\lib -LC:\MinGW\bin
@@ -19,7 +19,7 @@ COMPILER_FLAGS =
 LINKER_FLAGS = -lmingw32 -lSDL2_ttf -lSDL2Main -lSDL2  -lSDL2_image 
 
 #OBJ_NAME specifies the name of our exectuable
-OBJ_NAME = main
+OBJ_NAME = main_coin
 
 #This is the target that compiles our executable
 all : $(OBJS)
