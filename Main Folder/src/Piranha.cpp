@@ -4,12 +4,12 @@
 int Piranha::n_piranha = 0;
 
 Piranha::Piranha():Ikan(0,0,0,0,0,0,0,0,-999)
-{//Empty guppy 
+{//Empty Piranha 
 
 }
 
 Piranha::Piranha(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,10,5000,3,n_piranha)
-{//alive guppy
+{//alive Piranha
     n_piranha++;
 }
 void Piranha::move(List<Guppy>& guppy, double sec_since_last)
