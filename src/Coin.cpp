@@ -1,11 +1,11 @@
-#include <Coin.hpp>
+#include "Coin.hpp"
 #include <stdlib.h>
 
     Coin::Coin():Position(0,0,0,0),speed(1) {
    		id = -999;
     }
     //memunculkan sebuah koin dengan posisi x y dengan value val.
-    Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax),speed(1) {
+    Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax),speed(2) {
     	id = n_coin;
     	n_coin++;
     }
