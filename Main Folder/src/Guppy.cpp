@@ -85,3 +85,20 @@ bool Guppy::operator== (std::nullptr_t)
 {
     return this->id == -999;
 }
+
+Guppy Guppy::operator=(const Guppy& G)
+{
+    hunger = G.hunger;
+    growthStage = G.growthStage;
+    growth = G.growth;
+    this->id = G.id;
+    move_tick_rate = G.move_tick_rate;
+    coin_tick_rate = G.coin_tick_rate;
+    xdest = G.xdest;
+    ydest = G.ydest;
+    setX(G.getX());
+    setY(G.getY());
+    setXMax(G.getXMax());
+    setYMax(G.getYMax());
+    return *this;
+}

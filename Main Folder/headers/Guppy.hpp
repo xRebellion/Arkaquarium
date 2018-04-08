@@ -24,5 +24,6 @@ public:
 
 	bool operator== (const Guppy& G);
 	bool operator==(std::nullptr_t n);
+	Guppy operator=(const Guppy& G);
 };
 #endif

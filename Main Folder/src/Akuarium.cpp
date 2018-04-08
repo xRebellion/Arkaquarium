@@ -102,7 +102,7 @@ void Akuarium::update(double sec_since_last)
 
     for(int i = 0; makanan.getAddr(i) != NULL ; i++)
     {
-        makanan.get(i).moveDown();
+        makanan.get(i).moveDown(sec_since_last);
         if(makanan.get(i).isOnBottom())
         {
             makanan.remove(makanan.get(i));

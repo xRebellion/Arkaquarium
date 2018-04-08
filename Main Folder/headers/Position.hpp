@@ -15,6 +15,8 @@ public:
     int getYMax() const;
     void setX(int x);// set X
     void setY(int y);// set Y
+    void setXMax(int xMax);
+    void setYMax(int yMax);
 };
 
 
