@@ -35,13 +35,15 @@ int List<T>::find(T elmt)
 {
     int i;
     List<T> * currList = this;
-    for(i = 0; Next != nullptr && (data != &elmt || *data != elmt) ; i++)
+    for(i = 0; currList->Next != nullptr && currList->data != &elmt && *(currList->data) != elmt ; i++)
     {
         currList = currList->Next;
     }
-    cout << "i went here";
-    if(Next == nullptr && (data != &elmt && *data != elmt))
+
+    if(currList->Next == nullptr && (currList->data != &elmt && *(currList->data) != elmt))
+    {
         return -1;
+    }
     else
         return i;
 }
