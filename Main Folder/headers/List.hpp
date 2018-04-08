@@ -18,6 +18,7 @@ public:
     void add (T * elmt);
     void remove (T elmt);
     T get(int index);
+    T * getDataAddr(int index);
     List<T> * getAddr(int index);
 };
 
@@ -76,18 +77,31 @@ void List<T>::add (T * elmt)
 template <class T>
 void List<T>::remove(T elmt)
 {
-    List<T> * currList = this;
-    bool found = false;
-    while (currList->Next != nullptr && !found)
+    
+    if(!isEmpty())
     {
-        if(currList->Next->data == elmt)
-            found = true;
-        else
-            currList = currList->Next;
-    }
-    if(found)
-    {
-        currList->Next = currList->Next->Next;
+        List<T> * currList = this;
+        if((currList->data == &elmt && *(currList->data) == elmt))
+        {
+            currList->data = nullptr;
+        } else
+        {
+            
+            bool found = false;
+            while (currList->Next != nullptr && !found)
+            {
+                if((currList->Next->data == &elmt && *(currList->Next->data) == elmt))
+                    found = true;
+                else
+                    currList = currList->Next;
+            }
+                
+            if(found)
+            {
+                currList->Next = currList->Next->Next;
+            }
+
+        }
     }
 }
 
@@ -106,7 +120,7 @@ T List<T>::get(int index)
 }
 
 template <class T>
-List<T> * List<T>::getAddr(int index)
+T * List<T>::getDataAddr(int index)
 {
     List<T> * currList = this;
     
@@ -114,6 +128,24 @@ List<T> * List<T>::getAddr(int index)
     {
         currList = currList->Next;
     }
-    return currList;
+    return currList->data;
+    
+    
+}
+
+template <class T>
+List<T> * List<T>::getAddr(int index)
+{
+    if(!isEmpty())
+    {
+        List<T> * currList = this;
+        
+        for (int i = 0; i < index; i++)
+        {
+            currList = currList->Next;
+        }
+        return currList;
+    }
+    return nullptr;
 }
 #endif

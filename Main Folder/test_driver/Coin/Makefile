@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = main_position.cpp ../../src/Position.cpp
+OBJS = main_coin.cpp ../../src/Coin.cpp ../../src/Position.cpp
 
 #CC specifies which compiler we're using
 CC = g++
@@ -19,7 +19,7 @@ COMPILER_FLAGS =
 LINKER_FLAGS = -lmingw32 -lSDL2_ttf -lSDL2Main -lSDL2  -lSDL2_image 
 
 #OBJ_NAME specifies the name of our exectuable
-OBJ_NAME = main_position
+OBJ_NAME = main_coin
 
 #This is the target that compiles our executable
 all : $(OBJS)

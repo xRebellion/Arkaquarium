@@ -1,18 +1,19 @@
 //Driver List
 #include "List.hpp"
-//#include "Guppy.hpp"
-//#include "Piranha.hpp"
+#include "Guppy.hpp"
+#include "Piranha.hpp"
 #include <iostream>
 using namespace std;
 
 int main()
 {
     
-    //List<Guppy> g;
-    //List<Piranha> p;
+    List<Guppy> g;
+    List<Piranha> p;
     List<int> iL;
     int x = 10;
     int y = 20;
+    cout << "========================INTEGER============================="<<endl;
     cout << "x y : " << x << " " << y << endl;
     iL.add(&x);
     iL.add(&y);
@@ -27,6 +28,8 @@ int main()
     cout << "iL[0] iL[1] : " << iL.get(0) << " " << iL.get(1) << endl;
     
     cout<<"find(100) : "<< iL.find(100) << endl;
+
+    cout << "============================================================="<<endl;
     
     return 0;
     

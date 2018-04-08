@@ -8,7 +8,7 @@ Position::Position(int xMaxPos, int yMaxPos)
     x= rand()%xMaxPos;
     y= rand()%yMaxPos;
 }
-Position::Position (int x, int y, int xMaxPos, int yMaxPos)
+Position::Position (double x, double y, int xMaxPos, int yMaxPos)
 {
     this->x = x;
     this->y = y;
@@ -16,12 +16,12 @@ Position::Position (int x, int y, int xMaxPos, int yMaxPos)
     this->yMaxPos = yMaxPos;
 }
 
-int Position::getX() const
+double Position::getX() const
 {
     return x;
 }
 
-int Position::getY() const
+double Position::getY() const
 {
     return y;
 }
@@ -34,11 +34,11 @@ int Position::getYMax() const
 {
     return yMaxPos;
 }
-void Position::setX(int x)
+void Position::setX(double x)
 {
     this->x = x;
 }
-void Position::setY(int y)
+void Position::setY(double y)
 {
     this->y = y;
 }
