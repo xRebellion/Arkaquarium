@@ -1,5 +1,6 @@
 #include <Position.hpp>
 #include <stdlib.h>
+#include <time.h>
 	//Initialize (Randomized) 
 	Position::Position(int xMaxPos, int yMaxPos) {	
 		srand(time(NULL));
@@ -20,6 +21,14 @@
     //get Y
     int Position::getY() const {
     	return y;
+    }
+    //get xMaxPos
+    int getXMax() const {
+    	return xMaxPos;
+    }
+    //get yMaxPos
+    int getYMax() const {
+    	return yMaxPos;
     }
     // set X
     void Position::setX(int x) {
