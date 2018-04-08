@@ -15,6 +15,7 @@ public:
     bool isOnBottom() const; //mengecek apakah koin sudah sampai bawah (y = yMaxPos) atau belum.
     //getter setter
     int getValue() const;
+    int getID() const;
     void setValue(int val);
 
     bool operator==(const Coin& C);
