@@ -8,7 +8,7 @@ CC = g++
 INCLUDE_PATHS = -IC:\MinGW\include\SDL2 -I../../headers
 
 #LIBRARY_PATHS specifies the additional library paths we'll need
-LIBRARY_PATHS = -LC:\MinGW\lib -LC:\MinGW\bin
+LIBRARY_PATHS = -LC:\MinGW\lib
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings

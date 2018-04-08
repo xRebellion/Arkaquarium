@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    
+    /*
     //List<Guppy> g;
     //List<Piranha> p;
     List<int> iL;
@@ -25,9 +25,8 @@ int main()
     y = 100;
     cout << "x y : " << x << " " << y << endl;
     cout << "iL[0] iL[1] : " << iL.get(0) << " " << iL.get(1) << endl;
-    
-    cout<<"find(100) : "<< iL.find(100) << endl;
-    
+    cout<< iL.find(100) << endl;
+    */
     return 0;
     
 }
