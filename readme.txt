@@ -1,1 +1,2 @@
 Copy ***isi*** dari SDL_MinGW ke C:\MinGW
+IMPLEMENTASI SEMUA DI FOLDER SRC -MAHA
