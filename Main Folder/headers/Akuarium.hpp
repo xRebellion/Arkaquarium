@@ -35,7 +35,7 @@ public:
     List<Makanan> GetMakananList();
     //List yang direturn ini bisa diubah sekaligus - karena berupa reference.
     
-    void update();
+    void update(double sec_since_last);
     //Updates all of the objects in the lists
 
 

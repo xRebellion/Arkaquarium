@@ -16,7 +16,7 @@ char * Akuarium::GetObjOnPos(int x, int y) //Mencari objek pada x y sekian pada 
         obj[i] = '_';
     }
 
-    for(int i = 0; coin.getNext(i) != NULL ; i++)
+    for(int i = 0; coin.getAddr(i) != NULL ; i++)
     {
         if(coin.get(i).getX() == x && coin.get(i).getY() == y)
         {
@@ -24,7 +24,7 @@ char * Akuarium::GetObjOnPos(int x, int y) //Mencari objek pada x y sekian pada 
         }
     }
 
-    for(int i = 0; guppy.getNext(i) != NULL ; i++)
+    for(int i = 0; guppy.getAddr(i) != NULL ; i++)
     {
         if(guppy.get(i).getX() == x && guppy.get(i).getY() == y)
         {
@@ -32,7 +32,7 @@ char * Akuarium::GetObjOnPos(int x, int y) //Mencari objek pada x y sekian pada 
         }
     }
 
-    for(int i = 0; piranha.getNext(i) != NULL ; i++)
+    for(int i = 0; piranha.getAddr(i) != NULL ; i++)
     {
         if(piranha.get(i).getX() == x && piranha.get(i).getY() == y)
         {
@@ -40,7 +40,7 @@ char * Akuarium::GetObjOnPos(int x, int y) //Mencari objek pada x y sekian pada 
         }
     }
 
-    for(int i = 0; makanan.getNext(i) != NULL ; i++)
+    for(int i = 0; makanan.getAddr(i) != NULL ; i++)
     {
         if(makanan.get(i).getX() == x && makanan.get(i).getY() == y)
         {
@@ -69,11 +69,11 @@ List<Makanan> Akuarium::GetMakananList()
 {
     return makanan;
 }
-void Akuarium::update()
+void Akuarium::update(double sec_since_last)
 { //update's deaths currently only handles natural deaths (e.g: fish too hungry, coin reached bottom, etc.)
 //not yet updates from other sources.
     
-    for(int i = 0; coin.getNext(i) != NULL ; i++)
+    for(int i = 0; coin.getAddr(i) != NULL ; i++)
     {
         coin.get(i).moveDown();
         if(coin.get(i).isOnBottom())
@@ -82,25 +82,25 @@ void Akuarium::update()
         }
     }
 
-    for(int i = 0; guppy.getNext(i) != NULL ; i++)
+    for(int i = 0; guppy.getAddr(i) != NULL ; i++)
     {
-        guppy.get(i).move();
+        guppy.get(i).move(makanan, sec_since_last);
         if(guppy.get(i).checkDeath())
         {
             guppy.remove(guppy.get(i));
         }
     }
 
-    for(int i = 0; piranha.getNext(i) != NULL ; i++)
+    for(int i = 0; piranha.getAddr(i) != NULL ; i++)
     {
-        piranha.get(i).move();
+        piranha.get(i).move(guppy, sec_since_last);
         if(piranha.get(i).checkDeath())
         {
             piranha.remove(piranha.get(i));
         }
     }
 
-    for(int i = 0; makanan.getNext(i) != NULL ; i++)
+    for(int i = 0; makanan.getAddr(i) != NULL ; i++)
     {
         makanan.get(i).moveDown();
         if(makanan.get(i).isOnBottom())

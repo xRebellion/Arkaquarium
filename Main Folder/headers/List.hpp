@@ -13,7 +13,7 @@ public:
     void add (T elmt);
     void remove (T elmt);
     T get(int index);
-    List<T> * getNext(int index);
+    List<T> * getAddr(int index);
 };
 
 template <class T>
@@ -96,7 +96,7 @@ T List<T>::get(int index)
 }
 
 template <class T>
-List<T> * List<T>::getNext(int index)
+List<T> * List<T>::getAddr(int index)
 {
     List * currList = this;
     
@@ -104,6 +104,6 @@ List<T> * List<T>::getNext(int index)
     {
         currList = currList->Next;
     }
-    return currList->Next;
+    return currList;
 }
 #endif

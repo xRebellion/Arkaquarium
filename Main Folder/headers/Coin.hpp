@@ -1,6 +1,7 @@
 #ifndef COIN_HPP
 #define COIN_HPP
 #include "Position.hpp"
+#include <cstddef>
 class Coin : public Position
 {
 private:
@@ -17,5 +18,9 @@ public:
     void setValue(int val);
 
     bool operator==(const Coin& C);
+    bool operator==(std::nullptr_t n);
+
+
+
 };
 #endif

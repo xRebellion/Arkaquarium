@@ -87,7 +87,7 @@ int main( int argc, char* args[] )
 		draw_image("resources/bg.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         //draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         //draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        akuarium.update();
+        akuarium.update(sec_since_last);
         draw_image("resources/ikan.png", 320, 240);
         
 		update_screen();
