@@ -8,10 +8,11 @@ Ikan::Ikan(int x, int y, int xmax, int ymax,int gThreshold, int cRadius, int hTh
 growthThreshold(gThreshold), hungerThreshold(hThreshold), catchRadius(cRadius), spd(spd), Position(x, y, xmax,ymax)
 {
     srand(time(0));
-    hunger = 10000;
+    hunger = 15000;
     growthStage = 1;
     growth = 0;
     this->id = id;
+    
     move_tick_rate = 0;
     coin_tick_rate = 0;
     xdest = rand()%xmax;
@@ -29,7 +30,7 @@ void Ikan::checkGrow()
 void Ikan::moveTo(int x, int y, double sec_since_last)
 {
     double a = atan2(y-this->getY(),x-this->getX());
-
+    
     setX(getX() + spd*cos(a)*sec_since_last);
     setY(getY() + spd*sin(a)*sec_since_last);
 }
@@ -48,5 +49,6 @@ void Ikan::reduceHunger(double sec)
 }
 int Ikan::getID()
 {
+    
     return id;
 }

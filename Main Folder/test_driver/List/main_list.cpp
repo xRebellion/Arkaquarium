@@ -1,7 +1,7 @@
 //Driver List
 #include "List.hpp"
 #include "Guppy.hpp"
-#include "Piranha.hpp"
+//#include "Piranha.hpp"
 #include <iostream>
 using namespace std;
 
@@ -9,25 +9,59 @@ int main()
 {
     
     List<Guppy> g;
-    List<Piranha> p;
-    List<int> iL;
-    int x = 10;
-    int y = 20;
-    cout << "========================INTEGER============================="<<endl;
-    cout << "x y : " << x << " " << y << endl;
-    iL.add(&x);
-    iL.add(&y);
-    cout << "iL[0] iL[1] : " << iL.get(0) << " " << iL.get(1) << endl;
-    x = 40;
-    y = 50;
-    cout << "x y : " << x << " " << y << endl;
-    cout << "iL[0] iL[1] : " << iL.get(0) << " " << iL.get(1) << endl;
-    x = 80;
-    y = 100;
-    cout << "x y : " << x << " " << y << endl;
-    cout << "iL[0] iL[1] : " << iL.get(0) << " " << iL.get(1) << endl;
-    
-    cout<<"find(100) : "<< iL.find(100) << endl;
+    //List<Piranha> p;
+    Guppy * G = new Guppy(100,100,200,200);
+    Guppy * G2 = new Guppy(100,200,200,100);
+    Guppy * G3 = new Guppy(2,3,4,5);
+    g.add(G);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+    g.add(G2);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+    g.add(G3);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {   
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+
+    g.remove(*G2);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+    g.add(G3);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+    g.remove(*G3);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+    g.remove(*G3);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
+    g.remove(*G);
+    for(int i = 0; g.getAddr(i) != nullptr ; i++)
+    {        
+        cout << (*(g.getDataAddr(i))).getID() << " ";
+    }
+    cout<<endl;
 
     cout << "============================================================="<<endl;
     

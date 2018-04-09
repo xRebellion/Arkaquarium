@@ -21,7 +21,6 @@ private:
 
 public:
     Akuarium(int xMax,int yMax);//Inisialisasi akuarium dengan randomisasi posisi setiap entitas (sebesar (xmax ymax))
-    char * GetObjOnPos(int x, int y); //Mencari objek pada x y sekian pada setiap list of object
     //mereturn array of char.
     //'C' untuk koin pada arr[0]
     //'G' untuk guppy pada arr[1]

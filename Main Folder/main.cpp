@@ -67,7 +67,10 @@ int main( int argc, char* args[] )
             switch (key) {
             // r untuk reset
             case SDLK_r:
-                akuarium.AddToAkuarium(new Guppy(100,100,800,600));
+                akuarium.AddToAkuarium(new Guppy(rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT,800,600));
+                break;
+            case SDLK_m:
+                akuarium.AddToAkuarium(new Makanan(rand()%SCREEN_WIDTH,0,800,600));
                 break;
             // x untuk keluar
             case SDLK_x:
@@ -97,6 +100,11 @@ int main( int argc, char* args[] )
         for(int i = 0 ; (*guppy).getAddr(i) != nullptr ; i++)
         {
             draw_image("resources/ikan.png", (*guppy).get(i).getX(), (*guppy).get(i).getY());
+        }
+
+        for(int i = 0 ; (*makanan).getAddr(i) != nullptr ; i++)
+        {
+            draw_image("resources/ikan.png", (*makanan).get(i).getX(), (*makanan).get(i).getY());
         }
         
 		update_screen();

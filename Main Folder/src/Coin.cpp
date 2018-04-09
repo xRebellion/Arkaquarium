@@ -38,6 +38,9 @@ void Coin::setValue(int val) {
 bool Coin::operator==(const Coin& C) {
     return this->id == C.id;
 }
+bool Coin::operator!=(const Coin& C) {
+    return this->id != C.id;
+}
 bool Coin::operator==(std::nullptr_t n) {
     return this->id == -999;
 }

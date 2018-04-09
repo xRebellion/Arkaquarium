@@ -10,6 +10,7 @@ class List
 {
 private:
     T * data;
+    List<T> *Head;
     List<T> *Next;
 public:
     List();
@@ -26,6 +27,7 @@ template <class T>
 List<T>::List()
 {
     data = nullptr;
+    Head = nullptr;
     Next = nullptr;
 }
 
@@ -35,7 +37,7 @@ int List<T>::find(T elmt)
 //Jika tidak ditemukan, maka mereturn -1 sebagai value.
 {
     int i;
-    List<T> * currList = this;
+    List<T> * currList = Head;
     for(i = 0; currList->Next != nullptr && currList->data != &elmt && *(currList->data) != elmt ; i++)
     {
         currList = currList->Next;
@@ -52,16 +54,18 @@ int List<T>::find(T elmt)
 template <class T>
 bool List<T>::isEmpty()
 {
-    return (data == nullptr && Next == nullptr);
+    return (Head == nullptr);
 }
 
 template<class T>
 void List<T>::add (T * elmt)
 {
-    List<T> * currList = this;
+    List<T> * currList = Head;
     if (isEmpty())
     {
+        Head = this;
         data = elmt;
+        Next = nullptr;
     } else
     {
         while(currList->Next != nullptr)
@@ -71,36 +75,32 @@ void List<T>::add (T * elmt)
         currList->Next = new List();
         currList = currList->Next;
         currList->data = elmt;
+
     }
 }
 
 template <class T>
 void List<T>::remove(T elmt)
 {
-    
-    if(!isEmpty())
+    if (!isEmpty())
     {
-        List<T> * currList = this;
-        if((currList->data == &elmt && *(currList->data) == elmt))
+        List<T> * currList = Head;
+        if(currList->data == &elmt || *(currList->data) == elmt)
         {
-            currList->data = nullptr;
+            delete Head;
+            Head = currList->Next;
         } else
         {
-            
-            bool found = false;
-            while (currList->Next != nullptr && !found)
+            while (currList->Next != nullptr && currList->Next->data != &elmt && *(currList->Next->data) != elmt)
             {
-                if((currList->Next->data == &elmt && *(currList->Next->data) == elmt))
-                    found = true;
-                else
-                    currList = currList->Next;
+                currList = currList->Next;
             }
-                
-            if(found)
+            if(currList->Next->data == &elmt || *(currList->Next->data) == elmt)
             {
+                List<T>*temp = currList->Next;
                 currList->Next = currList->Next->Next;
+                delete temp;
             }
-
         }
     }
 }
@@ -108,7 +108,7 @@ void List<T>::remove(T elmt)
 template <class T>
 T List<T>::get(int index)
 {
-    List<T> * currList = this;
+    List<T> * currList = Head;
     
     for (int i = 0; i < index; i++)
     {
@@ -122,7 +122,7 @@ T List<T>::get(int index)
 template <class T>
 T * List<T>::getDataAddr(int index)
 {
-    List<T> * currList = this;
+    List<T> * currList = Head;
     
     for (int i = 0; i < index; i++)
     {
@@ -138,9 +138,8 @@ List<T> * List<T>::getAddr(int index)
 {
     if(!isEmpty())
     {
-        List<T> * currList = this;
-        
-        for (int i = 0; i < index; i++)
+        List<T> * currList = Head;
+        for (int i = 0; i < index && currList != nullptr; i++)
         {
             currList = currList->Next;
         }
