@@ -17,6 +17,7 @@ public:
 
     int getID();
     bool operator==(const Makanan& M);
+    bool operator!=(const Makanan& M);
     bool operator==(std::nullptr_t n);
 
     Makanan operator=(const Makanan& M);

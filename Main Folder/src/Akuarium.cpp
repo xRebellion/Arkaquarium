@@ -8,47 +8,6 @@ Akuarium::Akuarium(int xMax,int yMax)
     yMaxSize = yMax;
 }
 
-char * Akuarium::GetObjOnPos(int x, int y) //Mencari objek pada x y sekian pada setiap list of object
-{
-    char * obj = new char[4];
-    for(int i = 0; i < 4 ; i++)
-    {
-        obj[i] = '_';
-    }
-
-    for(int i = 0; coin.getAddr(i) != nullptr ; i++)
-    {
-        if(round(coin.get(i).getX()) == x && round(coin.get(i).getY()) == y)
-        {
-            obj[0] = 'C';
-        }
-    }
-
-    for(int i = 0; guppy.getAddr(i) != nullptr ; i++)
-    {
-        if(round(guppy.get(i).getX()) == x && round(guppy.get(i).getY()) == y)
-        {
-            obj[1] = 'G';
-        }
-    }
-
-    for(int i = 0; piranha.getAddr(i) != nullptr ; i++)
-    {
-        if(piranha.get(i).getX() == x && piranha.get(i).getY() == y)
-        {
-            obj[2] = 'P';
-        }
-    }
-
-    for(int i = 0; makanan.getAddr(i) != nullptr ; i++)
-    {
-        if(makanan.get(i).getX() == x && makanan.get(i).getY() == y)
-        {
-            obj[3] = 'M';
-        }
-    }
-    return obj;
-}
 
 void Akuarium::AddToAkuarium(Guppy * G)
 {
@@ -106,10 +65,10 @@ void Akuarium::update(double sec_since_last)
     ///////
     for(int i = 0; guppy.getAddr(i) != nullptr ; i++)
     {
-        
+        //cout << guppy.getAddr(i) <<" ";
         (*guppy.getDataAddr(i)).move(makanan, sec_since_last);
         (*guppy.getDataAddr(i)).reduceHunger(sec_since_last);
-        if(guppy.get(i).checkDeath())
+        if((*guppy.getDataAddr(i)).checkDeath())
         {
             Guppy * temp = guppy.getDataAddr(i); //deletes already unused objects, frees up space.
             guppy.remove(*temp);
@@ -136,8 +95,8 @@ void Akuarium::update(double sec_since_last)
     /////////
     for(int i = 0; makanan.getAddr(i) != nullptr ; i++)
     {
-        makanan.get(i).moveDown(sec_since_last);
-        if(makanan.get(i).isOnBottom())
+        (*makanan.getDataAddr(i)).moveDown(sec_since_last);
+        if((*makanan.getDataAddr(i)).isOnBottom())
         {
             Makanan * temp = makanan.getDataAddr(i);
             makanan.remove(*temp);

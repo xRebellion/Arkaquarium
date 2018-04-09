@@ -1,6 +1,8 @@
 #include "Guppy.hpp"
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+
 
 int Guppy::n_guppy = 0;
 
@@ -9,7 +11,7 @@ Guppy::Guppy():Ikan(0,0,0,0,0,0,0,0,-999)
 
 }
 
-Guppy::Guppy(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,10,5000,50,n_guppy)
+Guppy::Guppy(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,100,7500,50,n_guppy)
 {//alive guppy
     n_guppy++;
 }
@@ -19,6 +21,7 @@ void Guppy::move(List<Makanan>& makanan, double sec_since_last)
     {
         Makanan NearestFood = (*findNearestFood(makanan));
         moveTo(NearestFood.getX(),NearestFood.getY(),sec_since_last);
+        eat(makanan);
     } else
     {
         move_tick_rate += sec_since_last;
@@ -42,7 +45,8 @@ void Guppy::move(List<Makanan>& makanan, double sec_since_last)
 }
 bool Guppy::checkFood(List<Makanan>& makanan)
 {
-    return(sqrt(pow((*findNearestFood(makanan)).getX(),2)) + pow((*findNearestFood(makanan)).getY(),2))< catchRadius;
+    //cout<<sqrt(pow(getX()-(*findNearestFood(makanan)).getX(),2)) + pow(getY()-(*findNearestFood(makanan)).getY(),2)<<endl;
+    return(sqrt(pow(getX()-(*findNearestFood(makanan)).getX(),2)) + pow(getY()-(*findNearestFood(makanan)).getY(),2))< catchRadius;
 }
 void Guppy::eat(List<Makanan>& makanan)
 {
@@ -51,23 +55,25 @@ void Guppy::eat(List<Makanan>& makanan)
         Makanan * temp = findNearestFood(makanan);
         makanan.remove(*temp);
         growth += rand()%50 + 100;
+        hunger = 20000;
     }
 }
 
 Makanan * Guppy::findNearestFood(List<Makanan>& makanan)
 {
     double iMinDist = 0;
-    double minDist = sqrt(pow(makanan.get(0).getX(),2) + pow(makanan.get(0).getY(),2));
+    double minDist = sqrt(pow(getX()-(*makanan.getDataAddr(0)).getX(),2) + pow(getY()-(*makanan.getDataAddr(0)).getY(),2));
     for(int i = 0; makanan.getAddr(i) != nullptr; i++)
     {
         
-        double dist = sqrt(pow(makanan.get(i).getX(),2) + pow(makanan.get(i).getY(),2));
+        double dist = sqrt(pow(getX()-(*makanan.getDataAddr(i)).getX(),2) + pow(getY()-(*makanan.getDataAddr(i)).getY(),2));
         if(minDist > dist)
         {
             minDist = dist;
             iMinDist = i;
         }
     }
+    
     return makanan.getDataAddr(iMinDist);
     
 }
@@ -89,6 +95,11 @@ void Guppy::spitCoin(List<Coin>& Lcoin) // Membuat ikan mengeluarkan coin
 bool Guppy::operator== (const Guppy& G)
 {
     return this->id == G.id;
+}
+
+bool Guppy::operator!= (const Guppy& G)
+{
+    return this->id != G.id;
 }
 
 bool Guppy::operator== (std::nullptr_t)

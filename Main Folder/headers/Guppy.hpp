@@ -23,6 +23,7 @@ public:
 	Makanan * findNearestFood(List<Makanan>& makanan);
 
 	bool operator== (const Guppy& G);
+	bool operator!= (const Guppy& G);
 	bool operator==(std::nullptr_t n);
 	Guppy operator=(const Guppy& G);
 };
