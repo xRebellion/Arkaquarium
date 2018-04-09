@@ -12,7 +12,7 @@ const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 
 // Nama font yang digunakan untuk menggambar tulisan.
-const char* const FONT_NAME = "OpenSans-Regular.ttf";
+const char* const FONT_NAME = "resources/OpenSans-Regular.ttf";
 
 // ---------------------------------- SETUP ----------------------------------
 

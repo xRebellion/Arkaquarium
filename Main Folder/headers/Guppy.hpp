@@ -20,9 +20,11 @@ public:
 
 	bool checkSpitCoin(); //Mengecek apakah ikan boleh mengeluarkan koin atau belum
 	void spitCoin(List<Coin>& Lcoin); // Membuat ikan mengeluarkan coin
-	Makanan findNearestFood(List<Makanan>& makanan);
+	Makanan * findNearestFood(List<Makanan>& makanan);
 
 	bool operator== (const Guppy& G);
+	bool operator!= (const Guppy& G);
 	bool operator==(std::nullptr_t n);
+	Guppy operator=(const Guppy& G);
 };
 #endif

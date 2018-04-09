@@ -12,10 +12,14 @@ private:
 public:
     Makanan();
     Makanan(int x, int y, int xmax, int ymax); //selalu muncul di y = 0
-    void moveDown();//bergerak ke bawah secara terus menerus hingga sampai bawah.
+    void moveDown(double sec_since_last);//bergerak ke bawah secara terus menerus hingga sampai bawah.
     bool isOnBottom(); //mengecek apakah makanan sudah di y = ymaxpos atau belum.
 
+    int getID();
     bool operator==(const Makanan& M);
+    bool operator!=(const Makanan& M);
     bool operator==(std::nullptr_t n);
+
+    Makanan operator=(const Makanan& M);
 };
 #endif
