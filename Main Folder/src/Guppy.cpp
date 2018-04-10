@@ -11,7 +11,7 @@ Guppy::Guppy():Ikan(0,0,0,0,0,0,0,0,-999)
 
 }
 
-Guppy::Guppy(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,100,7500,50,n_guppy)
+Guppy::Guppy(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,100,7500,65,n_guppy)
 {//alive guppy
     n_guppy++;
 }

@@ -51,10 +51,10 @@ void Akuarium::update(double sec_since_last)
     //////
     for(int i = 0; coin.getAddr(i) != nullptr ; i++)
     {
-        coin.get(i).moveDown(sec_since_last);
-        if(coin.get(i).isOnBottom())
+        (*coin.getDataAddr(i)).moveDown(sec_since_last);
+        if((*coin.getDataAddr(i)).isOnBottom())
         {
-            Coin * temp = coin.getDataAddr(i); //deletes already unused objects, frees up space.
+            Coin * temp = coin.getDataAddr(i);
             coin.remove(*temp);
             delete temp;
         }
@@ -81,10 +81,12 @@ void Akuarium::update(double sec_since_last)
     ///////
     for(int i = 0; piranha.getAddr(i) != nullptr ; i++)
     {
-        piranha.get(i).move(guppy, sec_since_last);
-        if(piranha.get(i).checkDeath())
+        //cout << piranha.getAddr(i) <<" ";
+        (*piranha.getDataAddr(i)).move(guppy, sec_since_last);
+        (*piranha.getDataAddr(i)).reduceHunger(sec_since_last);
+        if((*piranha.getDataAddr(i)).checkDeath())
         {
-            Piranha * temp = piranha.getDataAddr(i);
+            Piranha * temp = piranha.getDataAddr(i); //deletes already unused objects, frees up space.
             piranha.remove(*temp);
             delete temp;
         }

@@ -27,7 +27,8 @@ int main( int argc, char* args[] )
     List<Guppy> * guppy = akuarium.getGList();
     List<Piranha> * piranha = akuarium.getPList();
     List<Makanan> * makanan = akuarium.getMList();
-
+    int money = 200;
+ 
 
     while (running) {
         double now = time_since_start();
@@ -38,7 +39,18 @@ int main( int argc, char* args[] )
         if (quit_pressed()) {
             running = false;
         }
-        //SDL_GetMouseState(&cursor_x, &cursor_y);
+        int cursor_x,cursor_y;
+        SDL_GetMouseState(&cursor_x, &cursor_y);
+        for(auto button : get_tapped_buttons())
+        {
+            switch(button) 
+            {
+                case SDL_BUTTON_LEFT:
+                    akuarium.AddToAkuarium(new Makanan(cursor_x,cursor_y,SCREEN_HEIGHT,SCREEN_WIDTH));
+                    break;
+            }
+        }
+        
 
         /*
         // Gerakkan ikan selama tombol panah ditekan
@@ -67,10 +79,9 @@ int main( int argc, char* args[] )
             switch (key) {
             // r untuk reset
             case SDLK_r:
-                akuarium.AddToAkuarium(new Guppy(rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT,800,600));
+                akuarium.AddToAkuarium(new Guppy(rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT,SCREEN_WIDTH,SCREEN_HEIGHT));
                 break;
             case SDLK_m:
-                akuarium.AddToAkuarium(new Makanan(rand()%SCREEN_WIDTH,0,800,600));
                 break;
             // x untuk keluar
             case SDLK_x:
@@ -93,7 +104,7 @@ int main( int argc, char* args[] )
         clear_screen();
 		draw_image("resources/bg.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         //draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        draw_text(fps_text, 10, 10, 30, 0, 0, 0);
         
         akuarium.update(sec_since_last);
         

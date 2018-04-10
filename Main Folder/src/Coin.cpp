@@ -7,7 +7,7 @@ Coin::Coin():Position(0,0,0,0),speed(1) {
     value = 0;
 }
 //memunculkan sebuah koin dengan posisi x y dengan value val.
-Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax),speed(2) {
+Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax),speed(38) {
     value = val;
     id = n_coin;
     n_coin++;

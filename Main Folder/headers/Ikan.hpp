@@ -16,7 +16,7 @@ protected:
 	char direction;
 	int hunger;
 	const int hungerThreshold;
-	const int spd;
+	int spd;
 	int id;
 	double move_tick_rate;
 	double coin_tick_rate;
