@@ -22,7 +22,7 @@ void Ikan::checkGrow()
     if (growth >= growthThreshold && growthStage < 3)
     {
         growthStage++;
-        growthStage -= growthThreshold;
+        growth -= growthThreshold;
     }
 }
 
@@ -57,4 +57,12 @@ int Ikan::getID()
 {
     
     return id;
+}
+int Ikan::getGrowthStage()
+{
+    return growthStage;
+}
+char Ikan::getDirection()
+{
+    return direction;
 }

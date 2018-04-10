@@ -11,7 +11,7 @@ Guppy::Guppy():Ikan(0,0,0,0,0,0,0,0,-999)
 
 }
 
-Guppy::Guppy(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,100,7500,65,n_guppy)
+Guppy::Guppy(int x, int y, int xmax, int ymax):Ikan(x,y,xmax,ymax,500,65,7500,115,n_guppy)
 {//alive guppy
     n_guppy++;
 }
@@ -30,7 +30,6 @@ void Guppy::move(List<Makanan>& makanan, double sec_since_last)
         srand((id+1)*time(0));
         double random_number = 1.5 + (rand()%3500)/1000.0;
 
-        
         if (move_tick_rate > random_number || (abs(getX()-xdest) < 1 && abs(getY()-ydest) < 1))
         {
             srand((id+1)*rand());
@@ -39,8 +38,7 @@ void Guppy::move(List<Makanan>& makanan, double sec_since_last)
             move_tick_rate = 0;
             
         }
-        moveTo(xdest, ydest, sec_since_last);
-        
+        moveTo(xdest, ydest, sec_since_last);     
     }
 }
 bool Guppy::checkFood(List<Makanan>& makanan)
@@ -56,6 +54,7 @@ void Guppy::eat(List<Makanan>& makanan)
         makanan.remove(*temp);
         growth += rand()%50 + 100;
         hunger = 20000;
+        checkGrow();
     }
 }
 
@@ -65,7 +64,6 @@ Makanan * Guppy::findNearestFood(List<Makanan>& makanan)
     double minDist = sqrt(pow(getX()-(*makanan.getDataAddr(0)).getX(),2) + pow(getY()-(*makanan.getDataAddr(0)).getY(),2));
     for(int i = 0; makanan.getAddr(i) != nullptr; i++)
     {
-        
         double dist = sqrt(pow(getX()-(*makanan.getDataAddr(i)).getX(),2) + pow(getY()-(*makanan.getDataAddr(i)).getY(),2));
         if(minDist > dist)
         {
@@ -73,21 +71,19 @@ Makanan * Guppy::findNearestFood(List<Makanan>& makanan)
             iMinDist = i;
         }
     }
-    
     return makanan.getDataAddr(iMinDist);
-    
 }
 
 bool Guppy::checkSpitCoin()
 {
-    return coin_tick_rate > 5; // makes coins fall every 5s
+    return coin_tick_rate > 10; // makes coins fall every 5s
 }
-void Guppy::spitCoin(List<Coin>& Lcoin) // Membuat ikan mengeluarkan coin
+void Guppy::spitCoin(List<Coin>& Lcoin, int value) // Membuat ikan mengeluarkan coin
 {
     if(checkSpitCoin())
     {
         coin_tick_rate = 0;
-        Lcoin.add(new Coin(getX(),getY(),growthStage*25,getXMax(),getYMax()));
+        Lcoin.add(new Coin(getX(),getY(),value,getXMax(),getYMax()));
     }
 }
 

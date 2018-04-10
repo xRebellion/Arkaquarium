@@ -14,7 +14,7 @@ Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax)
 }
 //bergerak ke bawah secara terus menerus hingga sampai bawah.
 void Coin::moveDown(double sec_since_last) {
-    setY(getY()- speed*sec_since_last);
+    setY(getY() + speed*sec_since_last);
 }
 //mengecek apakah koin sudah sampai bawah (y = yMaxPos) atau belum.
 bool Coin::isOnBottom() const {

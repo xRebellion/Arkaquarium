@@ -6,6 +6,8 @@ Akuarium::Akuarium(int xMax,int yMax)
 {
     xMaxSize = xMax;
     yMaxSize = yMax;
+    snail = new Snail(xMax/2, xMax, yMax);
+    money = 1000;
 }
 
 
@@ -42,6 +44,18 @@ List<Makanan> * Akuarium::getMList()
 {
     return &makanan;
 }
+Snail * Akuarium::getSnail()
+{
+    return snail;
+}
+int Akuarium::getMoney()
+{
+    return money;
+}
+void Akuarium::setMoney(int money)
+{
+    this->money = money;
+}
 
 void Akuarium::update(double sec_since_last)
 { //update's deaths currently only handles natural deaths (e.g: fish too hungry, coin reached bottom, etc.)
@@ -68,6 +82,7 @@ void Akuarium::update(double sec_since_last)
         //cout << guppy.getAddr(i) <<" ";
         (*guppy.getDataAddr(i)).move(makanan, sec_since_last);
         (*guppy.getDataAddr(i)).reduceHunger(sec_since_last);
+        (*guppy.getDataAddr(i)).spitCoin(coin,(*guppy.getDataAddr(i)).getGrowthStage()*25);
         if((*guppy.getDataAddr(i)).checkDeath())
         {
             Guppy * temp = guppy.getDataAddr(i); //deletes already unused objects, frees up space.
@@ -82,7 +97,7 @@ void Akuarium::update(double sec_since_last)
     for(int i = 0; piranha.getAddr(i) != nullptr ; i++)
     {
         //cout << piranha.getAddr(i) <<" ";
-        (*piranha.getDataAddr(i)).move(guppy, sec_since_last);
+        (*piranha.getDataAddr(i)).move(guppy, coin, sec_since_last);
         (*piranha.getDataAddr(i)).reduceHunger(sec_since_last);
         if((*piranha.getDataAddr(i)).checkDeath())
         {
@@ -105,4 +120,7 @@ void Akuarium::update(double sec_since_last)
             delete temp;
         }
     }
+
+    //Snail
+    money = money + (*snail).moveToCoin(coin,sec_since_last);
 }

@@ -31,6 +31,8 @@ public:
 	bool checkDeath(); //Mengecek apakah ikan sudah seharusnya mati atau tidak (hunger > 0?)
 	void reduceHunger(double sec); //Periodically reduce hunger
 	int getID();
+	int getGrowthStage();
+	char getDirection();
 	
 	//
 };

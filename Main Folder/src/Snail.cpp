@@ -1,24 +1,27 @@
 #include "Snail.hpp"
 #include <math.h>
 	//initialize snail di posisi (x, ymaxpos)
-    Snail::Snail(int x, int xmax, int ymax):Position(x,ymax,xmax,ymax) {
-    	catchRadius = 50;
+    Snail::Snail(int x, int xmax, int ymax):Position(x,ymax,xmax,ymax),catchRadius(75),speed(80) {
     }
     //Bergerak menuju koin paling dekat dasar (y = ymax dibanding koin lain)	
-    void Snail::moveToCoin(List<Coin> Lcoin) {
+    int Snail::moveToCoin(List<Coin>& Lcoin, double sec_since_last) {
     	if (!Lcoin.isEmpty()) {
-    		Coin *TargetCoin;
+    		Coin * TargetCoin;
     		TargetCoin = findMaxY(Lcoin);
-    		moveTo(TargetCoin.getX(),TargetCoin.getY(), sec_since_last);
+			double a = atan2(0,(*TargetCoin).getX()-this->getX());
+			double xdir = speed*cos(a)*sec_since_last; 
+			if(xdir < 0 && (abs((*TargetCoin).getX()-this->getX()) > 10)) direction = 'L'; else direction = 'R';
+    		if(abs((*TargetCoin).getX()-this->getX()) > 10) setX(getX() + xdir);
+			return catchCoin(Lcoin);
     	} 
     }
     //mengembalikan index dengan y maksimum.
-    int Snail::findMaxY(List<Coin> Lcoin) {
+    Coin * Snail::findMaxY(List<Coin>& Lcoin) {
     	double iMinDist = 0;
-	    double minDist = *Lcoin.getDataAddr(0).getY();
+	    double minDist = getYMax()- (*Lcoin.getDataAddr(0)).getY();
 	    for(int i = 0; Lcoin.getAddr(i) != nullptr; i++) {
 	        
-	        double dist = *Lcoin.getDataAddr(i).getY()
+	        double dist = getYMax()-(*Lcoin.getDataAddr(i)).getY();
 	        if(minDist > dist) {
 	            minDist = dist;
 	            iMinDist = i;
@@ -28,12 +31,20 @@
     }
 
     //menghapus koin dari list koin yang ada apabila berada di dekat snail.
-    void Snail::catchCoin(List<Coin>& Lcoin) {
+    int Snail::catchCoin(List<Coin>& Lcoin) {
     	Coin *TargetCoin;
     	double distance;
+		int coinVal = 0;
     	TargetCoin = findMaxY(Lcoin);
-    	distance = sqrt(pow(getX() - TargetCoin.getX() ,2) + pow(getY() - TargetCoin.getY(), 2));
+    	distance = sqrt(pow(getX() - (*TargetCoin).getX() ,2) + pow(getY() - (*TargetCoin).getY(), 2));
     	if (distance < catchRadius) {
+			coinVal = (*TargetCoin).getValue();
     		Lcoin.remove(*TargetCoin);
+			delete TargetCoin;
     	}
+		return coinVal;
     }
+	char Snail::getDirection()
+	{
+		return direction;
+	}

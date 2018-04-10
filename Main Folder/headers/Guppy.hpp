@@ -19,7 +19,7 @@ public:
 	void eat(List<Makanan>& makanan); //Memakan makanan di sekitar guppy.
 
 	bool checkSpitCoin(); //Mengecek apakah ikan boleh mengeluarkan koin atau belum
-	void spitCoin(List<Coin>& Lcoin); // Membuat ikan mengeluarkan coin
+	void spitCoin(List<Coin>& Lcoin, int value); // Membuat ikan mengeluarkan coin
 	Makanan * findNearestFood(List<Makanan>& makanan);
 
 	bool operator== (const Guppy& G);
