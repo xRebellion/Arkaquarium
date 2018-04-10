@@ -21,7 +21,6 @@ private:
 
 public:
     Akuarium(int xMax,int yMax);//Inisialisasi akuarium dengan randomisasi posisi setiap entitas (sebesar (xmax ymax))
-    char * GetObjOnPos(int x, int y); //Mencari objek pada x y sekian pada setiap list of object
     //mereturn array of char.
     //'C' untuk koin pada arr[0]
     //'G' untuk guppy pada arr[1]
@@ -29,13 +28,17 @@ public:
     //'M' untuk makanan pada arr[3]
     //digunakan array untuk mengcover kemungkinan 2 object di tempat yang sama.
 
-    List<Coin> GetCoinList();
-    List<Guppy> GetGuppyList();
-    List<Piranha> GetPiranhaList();
-    List<Makanan> GetMakananList();
+    void AddToAkuarium(Guppy * G);
+    void AddToAkuarium(Piranha * P);
+    void AddToAkuarium(Coin * C);
+    void AddToAkuarium(Makanan * M);
+    List<Coin> * getCList();
+    List<Guppy> * getGList();
+    List<Piranha> * getPList();
+    List<Makanan> * getMList();
     //List yang direturn ini bisa diubah sekaligus - karena berupa reference.
     
-    void update();
+    void update(double sec_since_last);
     //Updates all of the objects in the lists
 
 

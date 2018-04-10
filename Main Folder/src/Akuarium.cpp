@@ -8,104 +8,99 @@ Akuarium::Akuarium(int xMax,int yMax)
     yMaxSize = yMax;
 }
 
-char * Akuarium::GetObjOnPos(int x, int y) //Mencari objek pada x y sekian pada setiap list of object
+
+void Akuarium::AddToAkuarium(Guppy * G)
 {
-    char * obj = new char[4];
-    for(int i = 0; i < 4 ; i++)
-    {
-        obj[i] = '_';
-    }
-
-    for(int i = 0; coin.getNext(i) != NULL ; i++)
-    {
-        if(coin.get(i).getX() == x && coin.get(i).getY() == y)
-        {
-            obj[0] = 'C';
-        }
-    }
-
-    for(int i = 0; guppy.getNext(i) != NULL ; i++)
-    {
-        if(guppy.get(i).getX() == x && guppy.get(i).getY() == y)
-        {
-            obj[1] = 'G';
-        }
-    }
-
-    for(int i = 0; piranha.getNext(i) != NULL ; i++)
-    {
-        if(piranha.get(i).getX() == x && piranha.get(i).getY() == y)
-        {
-            obj[2] = 'P';
-        }
-    }
-
-    for(int i = 0; makanan.getNext(i) != NULL ; i++)
-    {
-        if(makanan.get(i).getX() == x && makanan.get(i).getY() == y)
-        {
-            obj[3] = 'M';
-        }
-    }
-    return obj;
+    guppy.add(G);
+}
+void Akuarium::AddToAkuarium(Piranha * P)
+{
+    piranha.add(P);
+}
+void Akuarium::AddToAkuarium(Coin * C)
+{
+    coin.add(C);
+}
+void Akuarium::AddToAkuarium(Makanan * M)
+{
+    makanan.add(M);
 }
 
-List<Coin> Akuarium::GetCoinList()
+List<Coin> * Akuarium::getCList()
 {
-    return coin;
+    return &coin;
+}
+List<Guppy> * Akuarium::getGList()
+{
+    return &guppy;
+}
+List<Piranha> * Akuarium::getPList()
+{
+    return &piranha;
+}
+List<Makanan> * Akuarium::getMList()
+{
+    return &makanan;
 }
 
-List<Guppy> Akuarium::GetGuppyList()
-{
-    return guppy;
-}
-
-List<Piranha> Akuarium::GetPiranhaList()
-{
-    return piranha;
-}
-
-List<Makanan> Akuarium::GetMakananList()
-{
-    return makanan;
-}
-void Akuarium::update()
+void Akuarium::update(double sec_since_last)
 { //update's deaths currently only handles natural deaths (e.g: fish too hungry, coin reached bottom, etc.)
-//not yet updates from other sources.
     
-    for(int i = 0; coin.getNext(i) != NULL ; i++)
+    //////
+    //COIN
+    //////
+    for(int i = 0; coin.getAddr(i) != nullptr ; i++)
     {
-        coin.get(i).moveDown();
+        coin.get(i).moveDown(sec_since_last);
         if(coin.get(i).isOnBottom())
         {
-            coin.remove(coin.get(i));
+            Coin * temp = coin.getDataAddr(i); //deletes already unused objects, frees up space.
+            coin.remove(*temp);
+            delete temp;
         }
     }
 
-    for(int i = 0; guppy.getNext(i) != NULL ; i++)
+    ///////
+    //GUPPY
+    ///////
+    for(int i = 0; guppy.getAddr(i) != nullptr ; i++)
     {
-        guppy.get(i).move();
-        if(guppy.get(i).checkDeath())
+        //cout << guppy.getAddr(i) <<" ";
+        (*guppy.getDataAddr(i)).move(makanan, sec_since_last);
+        (*guppy.getDataAddr(i)).reduceHunger(sec_since_last);
+        if((*guppy.getDataAddr(i)).checkDeath())
         {
-            guppy.remove(guppy.get(i));
+            Guppy * temp = guppy.getDataAddr(i); //deletes already unused objects, frees up space.
+            guppy.remove(*temp);
+            delete temp;
         }
     }
 
-    for(int i = 0; piranha.getNext(i) != NULL ; i++)
+    ////////
+    //PIRANHA
+    ///////
+    for(int i = 0; piranha.getAddr(i) != nullptr ; i++)
     {
-        piranha.get(i).move();
+        piranha.get(i).move(guppy, sec_since_last);
         if(piranha.get(i).checkDeath())
         {
-            piranha.remove(piranha.get(i));
+            Piranha * temp = piranha.getDataAddr(i);
+            piranha.remove(*temp);
+            delete temp;
         }
     }
 
-    for(int i = 0; makanan.getNext(i) != NULL ; i++)
+    /////////
+    //MAKANAN
+    /////////
+    for(int i = 0; makanan.getAddr(i) != nullptr ; i++)
     {
-        makanan.get(i).moveDown();
-        if(makanan.get(i).isOnBottom())
+        (*makanan.getDataAddr(i)).moveDown(sec_since_last);
+        if((*makanan.getDataAddr(i)).isOnBottom())
         {
-            makanan.remove(makanan.get(i));
+            Makanan * temp = makanan.getDataAddr(i);
+            makanan.remove(*temp);
+            delete temp;
         }
     }
 }

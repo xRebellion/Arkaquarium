@@ -3,6 +3,8 @@
 
 #include "Position.hpp"
 #include "CoinSpit.hpp"
+#include <math.h>
+
 
 class Ikan : public Position, public CoinSpit
 {
@@ -16,18 +18,19 @@ protected:
 	const int hungerThreshold;
 	const int spd;
 	int id;
+	double move_tick_rate;
+	double coin_tick_rate;
+	double xdest, ydest;
 public:
-    Ikan(int x, int y, int xmax, int ymax,int gThreshold, int cRadius, int hThreshold, int spd); // Generates a fish
+    Ikan(int x, int y, int xmax, int ymax,int gThreshold, int cRadius, int hThreshold, int spd, int id); // Generates a fish
 	
-	virtual void move() = 0; //Menentukan pergerakan ikan berdasarkan hunger, makanan ikan, dst.
-
     void checkGrow(); //Mengecek apakah growth > growthThreshold dan growthStage < 3. Jika iya, tambahkan growthstage.
-	void moveTo(int x, int y); //Bergerak ke suatu posisi tertentu
+	void moveTo(int x, int y, double sec_since_last); //Bergerak ke suatu posisi tertentu
 	
 	bool isHungry(); //Apakah ikan kelaparan atau tidak (hunger > hungerThreshold?)
 	bool checkDeath(); //Mengecek apakah ikan sudah seharusnya mati atau tidak (hunger > 0?)
-	void reduceHunger(); //Periodically reduce hunger
-	
+	void reduceHunger(double sec); //Periodically reduce hunger
+	int getID();
 	
 	//
 };
