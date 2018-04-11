@@ -31,7 +31,7 @@ int main()
         cout << (*(g.getDataAddr(i))).getID() << " ";
     }
     cout<<endl;
-
+    cout <<"Find(G3) = " << g.find(*G3) << endl;
     g.remove(*G2);
     for(int i = 0; g.getAddr(i) != nullptr ; i++)
     {        

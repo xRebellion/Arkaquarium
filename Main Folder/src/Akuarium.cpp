@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-Akuarium::Akuarium(int xMax,int yMax)
+Akuarium::Akuarium(int xMax,int yMax):egg_price(500)
 {
     xMaxSize = xMax;
     yMaxSize = yMax;
     snail = new Snail(xMax/2, xMax, yMax);
-    money = 1000;
+    money = 200;
+    egg_bought = 0;
 }
 
 
@@ -55,6 +56,20 @@ int Akuarium::getMoney()
 void Akuarium::setMoney(int money)
 {
     this->money = money;
+}
+int Akuarium::buyEgg()
+{
+    egg_bought++;
+    money -= egg_price;
+}
+
+int Akuarium::getEggBought()
+{
+    return egg_bought;
+}
+const int Akuarium::getEggPrice()
+{
+    return egg_price;
 }
 
 void Akuarium::update(double sec_since_last)

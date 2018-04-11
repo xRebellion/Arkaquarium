@@ -24,6 +24,8 @@ int main( int argc, char* args[] )
     //0 = main menu
     //1 = ingame.
 
+    int game_state = 0; //0 still running, 1 won, -1 lost.
+
     Akuarium akuarium(SCREEN_WIDTH, SCREEN_HEIGHT);
     
     List<Coin> * coin = akuarium.getCList();
@@ -66,7 +68,7 @@ int main( int argc, char* args[] )
                 }
             }
             update_screen();
-        } else
+        } else if (menu_state==1)
         {
             double now = time_since_start();
             double sec_since_last = now - prevtime;
@@ -137,12 +139,19 @@ int main( int argc, char* args[] )
                         err_msg_tick = 0;
                     }
                     break;
-                case SDLK_m:
+                case SDLK_SPACE:
+                    if(akuarium.getMoney() >= akuarium.getEggPrice())
+                    {
+                        akuarium.buyEgg();
+                    } else
+                    {
+                        show_not_enough_money = true;
+                        err_msg_tick = 0;
+                    }
                     break;
-                // x untuk keluar
-                case SDLK_x:
-                    running = false;
-                    break;
+                case SDLK_ESCAPE:
+                    if(game_state != 0) running = false;
+    
                 }
             }
             // Update FPS setiap detik
@@ -164,8 +173,9 @@ int main( int argc, char* args[] )
             
             akuarium.update(sec_since_last);
             std::ostringstream stro;
-            stro << "Money: " << akuarium.getMoney();
-            draw_text(stro.str(), 14, SCREEN_WIDTH-200, 30, 0, 0, 0);
+            stro << "Money: " << akuarium.getMoney() << endl;
+            stro << "Eggs Bought: "<< akuarium.getEggBought() << endl;
+            draw_text(stro.str(), 14, SCREEN_WIDTH-200, 30, 255, 255, 255);
             if(show_not_enough_money && err_msg_tick < 5)
             {
                 draw_text("Not Enough Money", 22, SCREEN_WIDTH/2-100, SCREEN_HEIGHT/4, 255, 0, 0);
@@ -236,9 +246,22 @@ int main( int argc, char* args[] )
             {
                 draw_image("resources/Pic/Coin Gold/Coin1.png", (*coin).get(i).getX(), (*coin).get(i).getY());
             }
+            if((*guppy).isEmpty() && (*piranha).isEmpty() && (*coin).isEmpty()&& akuarium.getMoney() < 100) game_state = -1;
+            if(akuarium.getEggBought() == 3) game_state = 1;
+            
+            if(game_state == -1)
+            {
+                draw_text("You Lost! :(", 22, SCREEN_WIDTH/2-65, SCREEN_HEIGHT/4, 255, 0, 0);
+                draw_text("Press ESC to exit the game", 22, SCREEN_WIDTH/2-135, SCREEN_HEIGHT/4+30, 255,255, 255);
+            } else if (game_state == 1)
+            {
+                draw_text("You Won! :D", 22, SCREEN_WIDTH/2-65, SCREEN_HEIGHT/4, 0, 255, 0);
+                draw_text("Press ESC to exit the game", 22, SCREEN_WIDTH/2-135, SCREEN_HEIGHT/4+30, 255,255, 255);
+            }
 
+            
             update_screen();
-        }
+        } 
     }
     close();
 
