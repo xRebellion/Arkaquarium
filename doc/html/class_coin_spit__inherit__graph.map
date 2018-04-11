@@ -1,0 +1,5 @@
+<map id="CoinSpit" name="CoinSpit">
+<area shape="rect" id="node2" href="$class_ikan.html" title="Ikan" alt="" coords="56,80,103,107"/>
+<area shape="rect" id="node3" href="$class_guppy.html" title="Guppy" alt="" coords="5,155,65,181"/>
+<area shape="rect" id="node4" href="$class_piranha.html" title="Piranha" alt="" coords="90,155,157,181"/>
+</map>

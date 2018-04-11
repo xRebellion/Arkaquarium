@@ -1,0 +1,8 @@
+<map id="Position" name="Position">
+<area shape="rect" id="node2" href="$class_coin.html" title="Coin" alt="" coords="5,80,53,107"/>
+<area shape="rect" id="node3" href="$class_ikan.html" title="Ikan" alt="" coords="78,80,125,107"/>
+<area shape="rect" id="node6" href="$class_makanan.html" title="Makanan" alt="" coords="149,80,224,107"/>
+<area shape="rect" id="node7" href="$class_snail.html" title="Snail" alt="" coords="248,80,299,107"/>
+<area shape="rect" id="node4" href="$class_guppy.html" title="Guppy" alt="" coords="27,155,87,181"/>
+<area shape="rect" id="node5" href="$class_piranha.html" title="Piranha" alt="" coords="112,155,179,181"/>
+</map>
