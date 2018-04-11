@@ -12,7 +12,6 @@ growthThreshold(gThreshold), hungerThreshold(hThreshold), catchRadius(cRadius), 
     growthStage = 1;
     growth = 0;
     this->id = id;
-    
     move_tick_rate = 0;
     coin_tick_rate = 0;
     xdest = rand()%xmax;
@@ -23,16 +22,23 @@ void Ikan::checkGrow()
     if (growth >= growthThreshold && growthStage < 3)
     {
         growthStage++;
-        growthStage -= growthThreshold;
+        growth -= growthThreshold;
     }
 }
 
 void Ikan::moveTo(int x, int y, double sec_since_last)
 {
     double a = atan2(y-this->getY(),x-this->getX());
-    
-    setX(getX() + spd*cos(a)*sec_since_last);
+    double xdir = spd*cos(a)*sec_since_last; 
+    setX(getX() + xdir);
     setY(getY() + spd*sin(a)*sec_since_last);
+    if(xdir < 0)
+    {
+        direction = 'L';
+    } else
+    {
+        direction = 'R';
+    }
 }
 
 bool Ikan::isHungry()
@@ -51,4 +57,12 @@ int Ikan::getID()
 {
     
     return id;
+}
+int Ikan::getGrowthStage()
+{
+    return growthStage;
+}
+char Ikan::getDirection()
+{
+    return direction;
 }

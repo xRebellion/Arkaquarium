@@ -87,7 +87,6 @@ void List<T>::remove(T elmt)
         List<T> * currList = Head;
         if(currList->data == &elmt || *(currList->data) == elmt)
         {
-            delete Head;
             Head = currList->Next;
         } else
         {
@@ -97,9 +96,9 @@ void List<T>::remove(T elmt)
             }
             if(currList->Next->data == &elmt || *(currList->Next->data) == elmt)
             {
-                List<T>*temp = currList->Next;
+                //List<T>*temp = currList->Next;
                 currList->Next = currList->Next->Next;
-                delete temp;
+                //delete temp;
             }
         }
     }

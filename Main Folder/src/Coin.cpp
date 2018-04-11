@@ -7,14 +7,14 @@ Coin::Coin():Position(0,0,0,0),speed(1) {
     value = 0;
 }
 //memunculkan sebuah koin dengan posisi x y dengan value val.
-Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax),speed(2) {
+Coin::Coin(int x, int y, int val, int xmax, int ymax):Position(x, y, xmax, ymax),speed(38) {
     value = val;
     id = n_coin;
     n_coin++;
 }
 //bergerak ke bawah secara terus menerus hingga sampai bawah.
 void Coin::moveDown(double sec_since_last) {
-    setY(getY()- speed*sec_since_last);
+    setY(getY() + speed*sec_since_last);
 }
 //mengecek apakah koin sudah sampai bawah (y = yMaxPos) atau belum.
 bool Coin::isOnBottom() const {
