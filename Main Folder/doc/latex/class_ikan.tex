@@ -1,0 +1,223 @@
+\hypertarget{class_ikan}{}\section{Ikan Class Reference}
+\label{class_ikan}\index{Ikan@{Ikan}}
+
+
+{\ttfamily \#include $<$Ikan.\+hpp$>$}
+
+
+
+Inheritance diagram for Ikan\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_ikan__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ikan\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ikan__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ikan_a0770a992c26f08ba3d9bad79fec71d55}{Ikan}} (int x, int y, int xmax, int ymax, int g\+Threshold, int c\+Radius, int h\+Threshold, int \mbox{\hyperlink{class_ikan_aac75c79c60a94f5607bdc2730203fd6f}{spd}}, int \mbox{\hyperlink{class_ikan_a9af33ebcd489980e17cbd4b876692e85}{id}})
+\item 
+void \mbox{\hyperlink{class_ikan_a68425d0df0528611318bdbef89aaf039}{check\+Grow}} ()
+\item 
+void \mbox{\hyperlink{class_ikan_af1b9d17721061771c7ea855b9c6e301d}{move\+To}} (int x, int y, double sec\+\_\+since\+\_\+last)
+\item 
+bool \mbox{\hyperlink{class_ikan_a893df179377af8174785228240eead8d}{is\+Hungry}} ()
+\item 
+bool \mbox{\hyperlink{class_ikan_a9a607ca1962b8f6029562e5571eaeb5c}{check\+Death}} ()
+\item 
+void \mbox{\hyperlink{class_ikan_aadb3eab63a3277d12d0cd4af5a9c96aa}{reduce\+Hunger}} (double sec)
+\item 
+int \mbox{\hyperlink{class_ikan_aa047dd2004a534353200f274e1541127}{get\+ID}} ()
+\item 
+int \mbox{\hyperlink{class_ikan_aa224e500b9f7c1f1e39b6045041a0d2f}{get\+Growth\+Stage}} ()
+\item 
+char \mbox{\hyperlink{class_ikan_af92d7548a85251152d24c6906c504298}{get\+Direction}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_ikan_aad3d87c6a66aa4cf3ec9e47b37bc90e3}{growth\+Stage}}
+\item 
+int \mbox{\hyperlink{class_ikan_a8c8f1efec43b4ae815d88b6472bc81bb}{growth}}
+\item 
+const int \mbox{\hyperlink{class_ikan_a7eaddebc6127b66ddfad007f49b4ae83}{growth\+Threshold}}
+\item 
+const int \mbox{\hyperlink{class_ikan_a7d6507a938bda54ba96d224e27a12b71}{catch\+Radius}}
+\item 
+char \mbox{\hyperlink{class_ikan_ac0fdc43f8926aaa17b0deb0ebfd4cc5b}{direction}}
+\item 
+int \mbox{\hyperlink{class_ikan_a038bd5c59db6efca6dc0e722a182ff09}{hunger}}
+\item 
+const int \mbox{\hyperlink{class_ikan_ac9671ac93e29bd9de93f401ecc903ac9}{hunger\+Threshold}}
+\item 
+int \mbox{\hyperlink{class_ikan_aac75c79c60a94f5607bdc2730203fd6f}{spd}}
+\item 
+int \mbox{\hyperlink{class_ikan_a9af33ebcd489980e17cbd4b876692e85}{id}}
+\item 
+double \mbox{\hyperlink{class_ikan_a51d3fe38edbf39ca78308b5d20630a77}{move\+\_\+tick\+\_\+rate}}
+\item 
+double \mbox{\hyperlink{class_ikan_af6c55901dcc5cfbdcc8b30798949118e}{coin\+\_\+tick\+\_\+rate}}
+\item 
+double \mbox{\hyperlink{class_ikan_a8c240f6477e1010fa7d70e505bf66ae3}{xdest}}
+\item 
+double \mbox{\hyperlink{class_ikan_ac338da0dc5dd61ec09b279200f94d328}{ydest}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ikan_a0770a992c26f08ba3d9bad79fec71d55}\label{class_ikan_a0770a992c26f08ba3d9bad79fec71d55}} 
+\index{Ikan@{Ikan}!Ikan@{Ikan}}
+\index{Ikan@{Ikan}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{Ikan()}{Ikan()}}
+{\footnotesize\ttfamily Ikan\+::\+Ikan (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{xmax,  }\item[{int}]{ymax,  }\item[{int}]{g\+Threshold,  }\item[{int}]{c\+Radius,  }\item[{int}]{h\+Threshold,  }\item[{int}]{spd,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ikan_a9a607ca1962b8f6029562e5571eaeb5c}\label{class_ikan_a9a607ca1962b8f6029562e5571eaeb5c}} 
+\index{Ikan@{Ikan}!check\+Death@{check\+Death}}
+\index{check\+Death@{check\+Death}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{check\+Death()}{checkDeath()}}
+{\footnotesize\ttfamily bool Ikan\+::check\+Death (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_a68425d0df0528611318bdbef89aaf039}\label{class_ikan_a68425d0df0528611318bdbef89aaf039}} 
+\index{Ikan@{Ikan}!check\+Grow@{check\+Grow}}
+\index{check\+Grow@{check\+Grow}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{check\+Grow()}{checkGrow()}}
+{\footnotesize\ttfamily void Ikan\+::check\+Grow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_af92d7548a85251152d24c6906c504298}\label{class_ikan_af92d7548a85251152d24c6906c504298}} 
+\index{Ikan@{Ikan}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{get\+Direction()}{getDirection()}}
+{\footnotesize\ttfamily char Ikan\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_aa224e500b9f7c1f1e39b6045041a0d2f}\label{class_ikan_aa224e500b9f7c1f1e39b6045041a0d2f}} 
+\index{Ikan@{Ikan}!get\+Growth\+Stage@{get\+Growth\+Stage}}
+\index{get\+Growth\+Stage@{get\+Growth\+Stage}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{get\+Growth\+Stage()}{getGrowthStage()}}
+{\footnotesize\ttfamily int Ikan\+::get\+Growth\+Stage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_aa047dd2004a534353200f274e1541127}\label{class_ikan_aa047dd2004a534353200f274e1541127}} 
+\index{Ikan@{Ikan}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily int Ikan\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_a893df179377af8174785228240eead8d}\label{class_ikan_a893df179377af8174785228240eead8d}} 
+\index{Ikan@{Ikan}!is\+Hungry@{is\+Hungry}}
+\index{is\+Hungry@{is\+Hungry}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{is\+Hungry()}{isHungry()}}
+{\footnotesize\ttfamily bool Ikan\+::is\+Hungry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_af1b9d17721061771c7ea855b9c6e301d}\label{class_ikan_af1b9d17721061771c7ea855b9c6e301d}} 
+\index{Ikan@{Ikan}!move\+To@{move\+To}}
+\index{move\+To@{move\+To}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{move\+To()}{moveTo()}}
+{\footnotesize\ttfamily void Ikan\+::move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{sec\+\_\+since\+\_\+last }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_ikan_aadb3eab63a3277d12d0cd4af5a9c96aa}\label{class_ikan_aadb3eab63a3277d12d0cd4af5a9c96aa}} 
+\index{Ikan@{Ikan}!reduce\+Hunger@{reduce\+Hunger}}
+\index{reduce\+Hunger@{reduce\+Hunger}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{reduce\+Hunger()}{reduceHunger()}}
+{\footnotesize\ttfamily void Ikan\+::reduce\+Hunger (\begin{DoxyParamCaption}\item[{double}]{sec }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_ikan_a7d6507a938bda54ba96d224e27a12b71}\label{class_ikan_a7d6507a938bda54ba96d224e27a12b71}} 
+\index{Ikan@{Ikan}!catch\+Radius@{catch\+Radius}}
+\index{catch\+Radius@{catch\+Radius}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{catch\+Radius}{catchRadius}}
+{\footnotesize\ttfamily const int Ikan\+::catch\+Radius\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_af6c55901dcc5cfbdcc8b30798949118e}\label{class_ikan_af6c55901dcc5cfbdcc8b30798949118e}} 
+\index{Ikan@{Ikan}!coin\+\_\+tick\+\_\+rate@{coin\+\_\+tick\+\_\+rate}}
+\index{coin\+\_\+tick\+\_\+rate@{coin\+\_\+tick\+\_\+rate}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{coin\+\_\+tick\+\_\+rate}{coin\_tick\_rate}}
+{\footnotesize\ttfamily double Ikan\+::coin\+\_\+tick\+\_\+rate\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_ac0fdc43f8926aaa17b0deb0ebfd4cc5b}\label{class_ikan_ac0fdc43f8926aaa17b0deb0ebfd4cc5b}} 
+\index{Ikan@{Ikan}!direction@{direction}}
+\index{direction@{direction}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily char Ikan\+::direction\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_a8c8f1efec43b4ae815d88b6472bc81bb}\label{class_ikan_a8c8f1efec43b4ae815d88b6472bc81bb}} 
+\index{Ikan@{Ikan}!growth@{growth}}
+\index{growth@{growth}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{growth}{growth}}
+{\footnotesize\ttfamily int Ikan\+::growth\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_aad3d87c6a66aa4cf3ec9e47b37bc90e3}\label{class_ikan_aad3d87c6a66aa4cf3ec9e47b37bc90e3}} 
+\index{Ikan@{Ikan}!growth\+Stage@{growth\+Stage}}
+\index{growth\+Stage@{growth\+Stage}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{growth\+Stage}{growthStage}}
+{\footnotesize\ttfamily int Ikan\+::growth\+Stage\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_a7eaddebc6127b66ddfad007f49b4ae83}\label{class_ikan_a7eaddebc6127b66ddfad007f49b4ae83}} 
+\index{Ikan@{Ikan}!growth\+Threshold@{growth\+Threshold}}
+\index{growth\+Threshold@{growth\+Threshold}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{growth\+Threshold}{growthThreshold}}
+{\footnotesize\ttfamily const int Ikan\+::growth\+Threshold\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_a038bd5c59db6efca6dc0e722a182ff09}\label{class_ikan_a038bd5c59db6efca6dc0e722a182ff09}} 
+\index{Ikan@{Ikan}!hunger@{hunger}}
+\index{hunger@{hunger}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{hunger}{hunger}}
+{\footnotesize\ttfamily int Ikan\+::hunger\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_ac9671ac93e29bd9de93f401ecc903ac9}\label{class_ikan_ac9671ac93e29bd9de93f401ecc903ac9}} 
+\index{Ikan@{Ikan}!hunger\+Threshold@{hunger\+Threshold}}
+\index{hunger\+Threshold@{hunger\+Threshold}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{hunger\+Threshold}{hungerThreshold}}
+{\footnotesize\ttfamily const int Ikan\+::hunger\+Threshold\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_a9af33ebcd489980e17cbd4b876692e85}\label{class_ikan_a9af33ebcd489980e17cbd4b876692e85}} 
+\index{Ikan@{Ikan}!id@{id}}
+\index{id@{id}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Ikan\+::id\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_a51d3fe38edbf39ca78308b5d20630a77}\label{class_ikan_a51d3fe38edbf39ca78308b5d20630a77}} 
+\index{Ikan@{Ikan}!move\+\_\+tick\+\_\+rate@{move\+\_\+tick\+\_\+rate}}
+\index{move\+\_\+tick\+\_\+rate@{move\+\_\+tick\+\_\+rate}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{move\+\_\+tick\+\_\+rate}{move\_tick\_rate}}
+{\footnotesize\ttfamily double Ikan\+::move\+\_\+tick\+\_\+rate\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_aac75c79c60a94f5607bdc2730203fd6f}\label{class_ikan_aac75c79c60a94f5607bdc2730203fd6f}} 
+\index{Ikan@{Ikan}!spd@{spd}}
+\index{spd@{spd}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{spd}{spd}}
+{\footnotesize\ttfamily int Ikan\+::spd\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_a8c240f6477e1010fa7d70e505bf66ae3}\label{class_ikan_a8c240f6477e1010fa7d70e505bf66ae3}} 
+\index{Ikan@{Ikan}!xdest@{xdest}}
+\index{xdest@{xdest}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{xdest}{xdest}}
+{\footnotesize\ttfamily double Ikan\+::xdest\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_ikan_ac338da0dc5dd61ec09b279200f94d328}\label{class_ikan_ac338da0dc5dd61ec09b279200f94d328}} 
+\index{Ikan@{Ikan}!ydest@{ydest}}
+\index{ydest@{ydest}!Ikan@{Ikan}}
+\subsubsection{\texorpdfstring{ydest}{ydest}}
+{\footnotesize\ttfamily double Ikan\+::ydest\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Desktop/technical stuff/cpp/\+Tubes O\+O\+P/\+Main Folder/headers/\mbox{\hyperlink{_ikan_8hpp}{Ikan.\+hpp}}\item 
+C\+:/\+Users/user/\+Desktop/technical stuff/cpp/\+Tubes O\+O\+P/\+Main Folder/src/\mbox{\hyperlink{_ikan_8cpp}{Ikan.\+cpp}}\end{DoxyCompactItemize}

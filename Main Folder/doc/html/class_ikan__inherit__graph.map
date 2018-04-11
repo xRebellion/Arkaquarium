@@ -1,0 +1,6 @@
+<map id="Ikan" name="Ikan">
+<area shape="rect" id="node4" href="$class_guppy.html" title="{Guppy\n||+ Guppy()\l+ Guppy()\l+ move()\l+ checkFood()\l+ eat()\l+ checkSpitCoin()\l+ spitCoin()\l+ findNearestFood()\l+ operator==()\l+ operator!=()\l+ operator==()\l+ operator=()\l}" alt="" coords="5,681,141,920"/>
+<area shape="rect" id="node5" href="$class_piranha.html" title="{Piranha\n||+ Piranha()\l+ Piranha()\l+ move()\l+ checkFood()\l+ eat()\l+ findNearestFood()\l+ checkSpitCoin()\l+ spitCoin()\l+ operator==()\l+ operator!=()\l+ operator==()\l}" alt="" coords="165,689,301,913"/>
+<area shape="rect" id="node2" href="$class_position.html" title="{Position\n||+ Position()\l+ Position()\l+ getX()\l+ getY()\l+ getXMax()\l+ getYMax()\l+ setX()\l+ setY()\l+ setXMax()\l+ setYMax()\l}" alt="" coords="39,5,134,215"/>
+<area shape="rect" id="node3" href="$class_coin_spit.html" title="{CoinSpit\n||+ checkSpitCoin()\l+ spitCoin()\l}" alt="" coords="158,64,285,156"/>
+</map>

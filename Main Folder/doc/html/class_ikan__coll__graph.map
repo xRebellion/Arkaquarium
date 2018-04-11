@@ -1,0 +1,4 @@
+<map id="Ikan" name="Ikan">
+<area shape="rect" id="node2" href="$class_position.html" title="{Position\n||+ Position()\l+ Position()\l+ getX()\l+ getY()\l+ getXMax()\l+ getYMax()\l+ setX()\l+ setY()\l+ setXMax()\l+ setYMax()\l}" alt="" coords="5,5,100,215"/>
+<area shape="rect" id="node3" href="$class_coin_spit.html" title="{CoinSpit\n||+ checkSpitCoin()\l+ spitCoin()\l}" alt="" coords="124,64,251,156"/>
+</map>

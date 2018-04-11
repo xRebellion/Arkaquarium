@@ -1,0 +1,5 @@
+<map id="Guppy" name="Guppy">
+<area shape="rect" id="node2" href="$class_ikan.html" title="{Ikan\n|# growthStage\l# growth\l# growthThreshold\l# catchRadius\l# direction\l# hunger\l# hungerThreshold\l# spd\l# id\l# move_tick_rate\l# coin_tick_rate\l# xdest\l# ydest\l|+ Ikan()\l+ checkGrow()\l+ moveTo()\l+ isHungry()\l+ checkDeath()\l+ reduceHunger()\l+ getID()\l+ getGrowthStage()\l+ getDirection()\l}" alt="" coords="52,263,187,633"/>
+<area shape="rect" id="node3" href="$class_position.html" title="{Position\n||+ Position()\l+ Position()\l+ getX()\l+ getY()\l+ getXMax()\l+ getYMax()\l+ setX()\l+ setY()\l+ setXMax()\l+ setYMax()\l}" alt="" coords="5,5,100,215"/>
+<area shape="rect" id="node4" href="$class_coin_spit.html" title="{CoinSpit\n||+ checkSpitCoin()\l+ spitCoin()\l}" alt="" coords="124,64,251,156"/>
+</map>
