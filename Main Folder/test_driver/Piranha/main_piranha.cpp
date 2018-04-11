@@ -18,19 +18,19 @@ int main(){
     Piranha P(50,50,100,100);
     List<Guppy> g;
     List<Coin> c;
+    
     g.add(new Guppy(75,75,100,100));
-    G.reduceHunger(10);
+    P.reduceHunger(10);
     cout <<"Is there guppy = "<<!g.isEmpty() << endl;
     while (tick_rate < 0.5)
     {
         tick_rate += sec;
-        G.move(m,sec);
-        cout << "Piranha Current Pos = " << G.getX() <<" " << G.getY() <<endl;
+        P.move(g,c,sec);
+        cout << "Piranha Current Pos = " << P.getX() <<" " << P.getY() <<endl;
     }
     
     
-    cout <<"Is there makanan = "<<!g.isEmpty() << endl;
-    G.spitCoin(c,100);
+    cout <<"Is there guppy = "<<!g.isEmpty() << endl;
     cout <<"Is there coin = "<<!c.isEmpty()<< endl;
     //expected output: coin is not empty.
     
