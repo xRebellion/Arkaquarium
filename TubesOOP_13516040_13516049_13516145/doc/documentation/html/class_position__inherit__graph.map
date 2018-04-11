@@ -1,0 +1,8 @@
+<map id="Position" name="Position">
+<area shape="rect" id="node2" href="$class_coin.html" title="{Coin\n||+ Coin()\l+ Coin()\l+ moveDown()\l+ isOnBottom()\l+ getValue()\l+ setValue()\l+ getID()\l+ getNcoin()\l+ operator==()\l+ operator!=()\l+ operator==()\l}" alt="" coords="5,336,116,560"/>
+<area shape="rect" id="node3" href="$class_ikan.html" title="{Ikan\n|# growthStage\l# growth\l# growthThreshold\l# catchRadius\l# direction\l# hunger\l# hungerThreshold\l# spd\l# id\l# move_tick_rate\l# coin_tick_rate\l# xdest\l# ydest\l|+ Ikan()\l+ checkGrow()\l+ moveTo()\l+ isHungry()\l+ checkDeath()\l+ reduceHunger()\l+ getID()\l+ getGrowthStage()\l+ getDirection()\l}" alt="" coords="140,263,275,633"/>
+<area shape="rect" id="node6" href="$class_makanan.html" title="{Makanan\n||+ Makanan()\l+ Makanan()\l+ moveDown()\l+ isOnBottom()\l+ getID()\l+ operator==()\l+ operator!=()\l+ operator==()\l+ operator=()\l}" alt="" coords="299,351,409,545"/>
+<area shape="rect" id="node7" href="$class_snail.html" title="{Snail\n||+ Snail()\l+ moveToCoin()\l+ findMaxY()\l+ catchCoin()\l+ getDirection()\l}" alt="" coords="434,380,546,516"/>
+<area shape="rect" id="node4" href="$class_guppy.html" title="{Guppy\n||+ Guppy()\l+ Guppy()\l+ move()\l+ checkFood()\l+ eat()\l+ checkSpitCoin()\l+ spitCoin()\l+ findNearestFood()\l+ operator==()\l+ operator!=()\l+ operator==()\l+ operator=()\l}" alt="" coords="59,681,195,920"/>
+<area shape="rect" id="node5" href="$class_piranha.html" title="{Piranha\n||+ Piranha()\l+ Piranha()\l+ move()\l+ checkFood()\l+ eat()\l+ findNearestFood()\l+ checkSpitCoin()\l+ spitCoin()\l+ operator==()\l+ operator!=()\l+ operator==()\l}" alt="" coords="219,689,355,913"/>
+</map>

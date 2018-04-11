@@ -1,0 +1,6 @@
+<map id="List&lt; T &gt;" name="List&lt; T &gt;">
+<area shape="rect" id="node2" href="$class_list.html" title="{List\&lt; Piranha \&gt;\n||+ List()\l+ find()\l+ isEmpty()\l+ add()\l+ remove()\l+ get()\l+ getDataAddr()\l+ getAddr()\l}" alt="" coords="5,248,120,428"/>
+<area shape="rect" id="node3" href="$class_list.html" title="{List\&lt; Guppy \&gt;\n||+ List()\l+ find()\l+ isEmpty()\l+ add()\l+ remove()\l+ get()\l+ getDataAddr()\l+ getAddr()\l}" alt="" coords="144,248,259,428"/>
+<area shape="rect" id="node4" href="$class_list.html" title="{List\&lt; Coin \&gt;\n||+ List()\l+ find()\l+ isEmpty()\l+ add()\l+ remove()\l+ get()\l+ getDataAddr()\l+ getAddr()\l}" alt="" coords="283,248,397,428"/>
+<area shape="rect" id="node5" href="$class_list.html" title="{List\&lt; Makanan \&gt;\n||+ List()\l+ find()\l+ isEmpty()\l+ add()\l+ remove()\l+ get()\l+ getDataAddr()\l+ getAddr()\l}" alt="" coords="421,248,541,428"/>
+</map>

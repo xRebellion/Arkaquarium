@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_coin_spit.html" title="CoinSpit" alt="" coords="5,31,76,57"/>
+<area shape="rect" id="node2" href="$class_ikan.html" title="Ikan" alt="" coords="138,31,185,57"/>
+<area shape="rect" id="node3" href="$class_guppy.html" title="Guppy" alt="" coords="250,5,310,32"/>
+<area shape="rect" id="node4" href="$class_piranha.html" title="Piranha" alt="" coords="247,56,313,83"/>
+<area shape="rect" id="node5" href="$class_position.html" title="Position" alt="" coords="6,107,75,133"/>
+<area shape="rect" id="node6" href="$class_coin.html" title="Coin" alt="" coords="137,81,185,108"/>
+<area shape="rect" id="node7" href="$class_makanan.html" title="Makanan" alt="" coords="124,132,199,159"/>
+<area shape="rect" id="node8" href="$class_snail.html" title="Snail" alt="" coords="136,183,187,209"/>
+</map>
