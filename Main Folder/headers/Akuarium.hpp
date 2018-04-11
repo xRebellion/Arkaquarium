@@ -20,6 +20,8 @@ private:
     //Max Aquarium size
     int xMaxSize, yMaxSize;
     int money;
+    int egg_bought;
+    const int egg_price;
 
 public:
     Akuarium(int xMax,int yMax);//Inisialisasi akuarium dengan randomisasi posisi setiap entitas (sebesar (xmax ymax))
@@ -37,6 +39,9 @@ public:
     Snail * getSnail();
     int getMoney();
     void setMoney(int money);
+    int buyEgg();
+    int getEggBought();
+    const int getEggPrice();
     
     void update(double sec_since_last);
     //Updates all of the objects in the lists
